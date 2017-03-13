@@ -1,0 +1,3 @@
+include ':pagerSlidingTabStrip', ':app'
+include ':xutils_lib'
+include ':应用市场'

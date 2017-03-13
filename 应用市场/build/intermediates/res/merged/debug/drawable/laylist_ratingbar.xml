@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- RatingBar 以下三点顺序不能错-->
+
+    <!-- 1.背景 -->
+    <item 
+        android:id="@android:id/background"
+        android:drawable="@drawable/rating_small_empty">
+    </item>
+    <!-- 2.副进度条 -->
+    <item 
+        android:id="@android:id/secondaryProgress"
+        android:drawable="@drawable/rating_small_half">
+    </item>
+    <!-- 3.主进度条 -->
+    <item 
+        android:id="@android:id/progress"
+        android:drawable="@drawable/rating_small_full">
+    </item>
+
+</layer-list>

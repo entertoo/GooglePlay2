@@ -1,0 +1,27 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+
+    defaultConfig {
+        applicationId "com.example.googleplay"
+        minSdkVersion 18
+        targetSdkVersion 25
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile project(':xutils_lib')
+    compile project(':pagerSlidingTabStrip')
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile files('libs/nineoldandroids-2.2.0.jar')
+}

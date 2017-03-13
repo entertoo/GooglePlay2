@@ -1,0 +1,117 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="4dp"
+    android:paddingRight="4dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_item_appinfo_bg"
+        android:orientation="vertical" >
+
+        <!-- 图片标题下载区域 -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp" >
+
+            <!-- 图片 -->
+
+            <ImageView
+                android:id="@+id/item_appinfo_iv_icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ic_default" />
+
+            <!-- 文字部分 -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/item_appinfo_iv_icon"
+                android:orientation="vertical" >
+
+                <!-- 标题 -->
+
+                <TextView
+                    android:id="@+id/item_appinfo_tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="应用标题"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <!-- 评分 -->
+                <!--
+					isIndicator="true" 	      如果这个为true,是不可以再拖动的RatingBar,是否是一个指示器（用户无法进行更改）
+					android:numStars="5"   最大值,显示的星型数量，必须是一个整形值
+					android:rating="0"     初始值 默认的评分，必须是浮点类型
+					android:stepSize="1"   步伐值,评分的步长
+                -->
+
+                <RatingBar
+                    android:id="@+id/item_appinfo_rb_stars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginTop="2dp"
+                    android:isIndicator="true"
+                    android:progressDrawable="@drawable/laylist_ratingbar"
+                    android:rating="3.5" />
+
+                <!-- 应用的大小 -->
+
+                <TextView
+                    android:id="@+id/item_appinfo_tv_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:singleLine="true"
+                    android:text="应用大小"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- 下载部分 -->
+
+            <com.example.googleplay.views.CircleProgressView
+                android:id="@+id/item_appinfo_circleprogress"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center" >
+            </com.example.googleplay.views.CircleProgressView>
+        </RelativeLayout>
+
+        <!-- 分割线 -->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/item_divider" />
+
+        <!-- 描述部分 -->
+
+        <TextView
+            android:id="@+id/item_appinfo_tv_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="阿萨德发空间阿萨德了飞"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</FrameLayout>

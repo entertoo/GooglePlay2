@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <!-- loading -->
+
+    <LinearLayout
+        android:id="@+id/item_loadmore_container_loading"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="@drawable/list_item_bg_normal"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateDrawable="@drawable/layerlist_progress_small" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="加载更多数据..."
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/item_loadmore_container_retry"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="@drawable/selector_item_appinfo_bg"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <!-- 加载失败 -->
+
+        <TextView
+            android:id="@+id/item_loadmore_tv_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="加载失败,点击重试"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>

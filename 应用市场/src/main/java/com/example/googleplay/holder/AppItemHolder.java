@@ -1,6 +1,7 @@
 package com.example.googleplay.holder;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AbsListView;
@@ -149,19 +150,7 @@ public class AppItemHolder extends BaseHolder<AppInfoBean> implements DownloadSt
 	private void refreshCircleUI(DownloadInfoBean downloadInfo)
 	{
 		int progress;
-		if(null == downloadInfo){
-			return;
-		}
-		/*View view = getHolderView().findViewWithTag(downloadInfo.packageName);
-		//CircleProgressView circleView = (CircleProgressView)absListView.findViewWithTag(downloadInfo.packageName);
-		CircleProgressView circleView = null;
-		if(view instanceof CircleProgressView){
-			circleView = (CircleProgressView)view;
-		}
-		if(null == circleView){
-			return;
-		}*/
-		if(downloadInfo.packageName.equals(mCircleProgressView.getTag())){
+		if(mData.packageName.equals(mCircleProgressView.getTag())){
 			switch (downloadInfo.state)
 			{
 				case DownloadManager.STATE_UN_DOWNLOAD:
@@ -171,6 +160,7 @@ public class AppItemHolder extends BaseHolder<AppInfoBean> implements DownloadSt
 				case DownloadManager.STATE_DOWNLOADING:
 					mCircleProgressView.setIcon(R.drawable.ic_pause);
 					// 设置下载环形进度条
+					mCircleProgressView.setMax(downloadInfo.max);
 					mCircleProgressView.setProgress(downloadInfo.curProgress);
 					// 设置下载进度百分数
 					progress = (int) (downloadInfo.curProgress * 100.f / downloadInfo.max + .5f);
@@ -197,9 +187,6 @@ public class AppItemHolder extends BaseHolder<AppInfoBean> implements DownloadSt
 				case DownloadManager.STATE_INSTALLED:
 					mCircleProgressView.setIcon(R.drawable.ic_install);
 					mCircleProgressView.setNote("打开");
-					break;
-
-				default:
 					break;
 			}
 		}

@@ -102,7 +102,7 @@ public class HomeFragment extends BaseFragment
 		}
 	}
 
-	// 真正去加载更多网络数据
+	/** 真正去加载更多网络数据*/
 	public List<AppInfoBean> loadMore(int index) throws Exception {
 
 		HomeBean homeBeanMore = mHomeProtocol.loadData(index);

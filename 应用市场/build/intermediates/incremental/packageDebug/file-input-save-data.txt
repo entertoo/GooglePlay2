@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Mar 13 15:03:56 CST 2017
+#Mon Mar 13 15:30:23 CST 2017
 210.set=ANDROID_RESOURCE
 282.file=/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/应用市场/build/intermediates/res/resources-debug.ap_/res/color/abc_secondary_text_material_dark.xml
 14.set=ANDROID_RESOURCE

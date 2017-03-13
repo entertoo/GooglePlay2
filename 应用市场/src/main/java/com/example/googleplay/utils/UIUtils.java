@@ -1,10 +1,10 @@
 package com.example.googleplay.utils;
 
-import com.example.googleplay.base.BaseApplication;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Handler;
+
+import com.example.googleplay.base.BaseApplication;
 
 /**
  * 和UI相关的工具类
@@ -17,11 +17,11 @@ public class UIUtils
 	// 得到上下文
 	public static Context getContext()
 	{
-		return BaseApplication.getmContext();
+		return BaseApplication.getContext();
 	}
 
 	// 得到Resource对象
-	public static Resources getResouce()
+	public static Resources getResource()
 	{
 		return getContext().getResources();
 	}
@@ -29,24 +29,24 @@ public class UIUtils
 	// 得到String.xml中的字符串
 	public static String getString(int resId)
 	{
-		return getResouce().getString(resId);
+		return getResource().getString(resId);
 	}
 	// 得到String.xml中的字符串及占位符
 	public static String getString(int id, Object... formatArgs)
 	{
-		return getResouce().getString(id, formatArgs);
+		return getResource().getString(id, formatArgs);
 	}
 
 	// 得到String.xml中的字符串数组
 	public static String[] getStringArr(int resId)
 	{
-		return getResouce().getStringArray(resId);
+		return getResource().getStringArray(resId);
 	}
 
 	// 得到color.xml中的颜色
 	public static int getColor(int colorId)
 	{
-		return getResouce().getColor(colorId);
+		return getResource().getColor(colorId);
 	}
 
 	// 得到应用程序的包名
@@ -58,13 +58,13 @@ public class UIUtils
 	// 得到主线程Id
 	public static long getMainThreadId()
 	{
-		return BaseApplication.getmMainThreadId();
+		return BaseApplication.getMainThreadId();
 	}
 
 	// 得到主线程Handler
 	public static Handler getMainThreadHandler()
 	{
-		return BaseApplication.getmHandler();
+		return BaseApplication.getHandler();
 	}
 
 	// 安全的执行UI任务
@@ -107,7 +107,7 @@ public class UIUtils
 	public static int dip2px(int dip)
 	{
 		// px / dip = density
-		float density = getResouce().getDisplayMetrics().density;
+		float density = getResource().getDisplayMetrics().density;
 		int px = (int) (dip * density + .5f);
 		return px;
 	}
@@ -116,7 +116,7 @@ public class UIUtils
 	public static int px2dip(int px)
 	{
 		// px / dip = density
-		float density = getResouce().getDisplayMetrics().density;
+		float density = getResource().getDisplayMetrics().density;
 		int dip = (int) (px / density + .5f);
 		return dip;
 	}

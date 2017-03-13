@@ -1,13 +1,5 @@
 package com.example.googleplay.base;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.example.googleplay.conf.Constants;
-import com.example.googleplay.factory.ThreadPoolFactory;
-import com.example.googleplay.holder.LoadMoreHolder;
-import com.example.googleplay.utils.UIUtils;
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -16,13 +8,16 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import com.example.googleplay.conf.Constants;
+import com.example.googleplay.factory.ThreadPoolFactory;
+import com.example.googleplay.holder.LoadMoreHolder;
+import com.example.googleplay.utils.UIUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * ListView的适配器
- * 
- * @author haopi
- * @创建时间 2016年7月10日 下午5:15:56
- * @描述 TODO
- * 
  * 	
  * @修改提交者 $Author: chp $
  * @提交时间 $Date: 2016-07-15 22:10:36 +0800 (Fri, 15 Jul 2016) $
@@ -31,12 +26,11 @@ import android.widget.ListView;
  */
 public abstract class SuperBaseAdapter<ItemBeanType> extends BaseAdapter implements OnItemClickListener
 {
-	protected List<ItemBeanType> mDataSource = new ArrayList<ItemBeanType>();
-
+	protected List<ItemBeanType> mDataSource = new ArrayList<>();
 	// 加载更多的视图类型
-	public static final int VIEWTYPE_LOADMORE = 0;
+	private static final int VIEW_TYPE_LOAD_MORE = 0;
 	// 普通的视图类型
-	public static final int VIEWTYPE_NORMAL = 1;
+	private static final int VIEW_TYPE_NORMAL = 1;
 
 	private LoadMoreHolder mLoadMoreHolder;
 
@@ -72,7 +66,7 @@ public abstract class SuperBaseAdapter<ItemBeanType> extends BaseAdapter impleme
 		// 判断当前位置是否为数据底部
 		if (position == getCount() - 1) {
 			// 划到底部，返回加载更多
-			return VIEWTYPE_LOADMORE;// 0
+			return VIEW_TYPE_LOAD_MORE;// 0
 		}
 		// 未滑倒底部，正常返回 / 分类页面返回+1
 		return getNormalType(position);
@@ -81,7 +75,7 @@ public abstract class SuperBaseAdapter<ItemBeanType> extends BaseAdapter impleme
 	// 默认返回listView正常情况类型，子类可重写，返回所需要的类型
 	public int getNormalType(int position) {
 		// 默认返回普通格式的listView类型
-		return VIEWTYPE_NORMAL;// 1
+		return VIEW_TYPE_NORMAL;// 1
 	}
 
 	@Override
@@ -96,9 +90,9 @@ public abstract class SuperBaseAdapter<ItemBeanType> extends BaseAdapter impleme
 
 		BaseHolder<ItemBeanType> holder;
 
-		/** 初始化视图，决定根布局 */
+		// 初始化视图，决定根布局
 		if (null == convertView) {
-			if (getItemViewType(position) == VIEWTYPE_LOADMORE) {
+			if (getItemViewType(position) == VIEW_TYPE_LOAD_MORE) {
 				// 加载更多数据的Holder
 				holder = (BaseHolder<ItemBeanType>) getLoadMOreHolder();
 			} else {
@@ -110,8 +104,8 @@ public abstract class SuperBaseAdapter<ItemBeanType> extends BaseAdapter impleme
 			holder = (BaseHolder<ItemBeanType>) convertView.getTag();
 		}
 
-		/** 数据展示 */
-		if (getItemViewType(position) == VIEWTYPE_LOADMORE) {
+		// 数据展示
+		if (getItemViewType(position) == VIEW_TYPE_LOAD_MORE) {
 			// 开始去加载更多
 			perFormLoadMore();
 		} else {
@@ -120,7 +114,7 @@ public abstract class SuperBaseAdapter<ItemBeanType> extends BaseAdapter impleme
 		}
 
 		// 返回布局，相当于返回convertView
-		return holder.mHolderView;
+		return holder.getHolderView();
 	}
 
 	/**
@@ -150,25 +144,23 @@ public abstract class SuperBaseAdapter<ItemBeanType> extends BaseAdapter impleme
 			int state = LoadMoreHolder.STATE_LOADING;
 			// 手动设置数据刷新视图
 			mLoadMoreHolder.setDataAndRefreshHolderView(state);
-
 			mLoadMoreTask = new LoadMoreTask();
 			// 开启线程池加载更多
-			ThreadPoolFactory.getmNormalPool().execute(mLoadMoreTask);
+			ThreadPoolFactory.getNormalPool().execute(mLoadMoreTask);
 		}
 	}
 
-	class LoadMoreTask implements Runnable
+	private class LoadMoreTask implements Runnable
 	{
+		int state;
 		@Override
 		public void run() {
 			List<ItemBeanType> loadMoreDatas = null;
 			// 默认加载状态
-			int state = LoadMoreHolder.STATE_LOADING;
-
+			state = LoadMoreHolder.STATE_LOADING;
 			try {
 				// 真正请求网络加载数据
 				loadMoreDatas = onLoadMore();
-
 				// 得到返回结果，处理结果
 				if (loadMoreDatas == null)// 没有更多数据
 				{
@@ -176,7 +168,7 @@ public abstract class SuperBaseAdapter<ItemBeanType> extends BaseAdapter impleme
 				} else {
 					// 假如规定每页返回20条数据
 					// 返回10<20==>没有加载更多
-					if (loadMoreDatas.size() < Constants.PAGERSIZE) {
+					if (loadMoreDatas.size() < Constants.PAGER_SIZE) {
 						state = LoadMoreHolder.STATE_NONE;
 					} else {
 						state = LoadMoreHolder.STATE_LOADING;
@@ -186,18 +178,15 @@ public abstract class SuperBaseAdapter<ItemBeanType> extends BaseAdapter impleme
 				e.printStackTrace();
 				state = LoadMoreHolder.STATE_RETRY;
 			}
-
 			// 使用临时变量保存数据
 			final int tmpState = state;
 			final List<ItemBeanType> tmpLoadMoreDatas = loadMoreDatas;
-
 			// 刷新loadmore视图
 			UIUtils.postTaskSafely(new Runnable() {
 				@Override
 				public void run() {
 					// 刷新loadmore视图
 					mLoadMoreHolder.setDataAndRefreshHolderView(tmpState);
-
 					// 刷新listview视图返回更多过后得到的数据mData.addAll()
 					if (tmpLoadMoreDatas != null) {
 						// Adds the objects in the specified collection to the end of this List
@@ -235,7 +224,7 @@ public abstract class SuperBaseAdapter<ItemBeanType> extends BaseAdapter impleme
 		}
 
 		// 根据不同的位置设置不同的点击事件
-		if (getItemViewType(position) == VIEWTYPE_LOADMORE) {
+		if (getItemViewType(position) == VIEW_TYPE_LOAD_MORE) {
 			// 重新加载更多
 			perFormLoadMore();
 		} else {

@@ -18,32 +18,28 @@ import java.util.List;
 
 public class AppItemAdapter extends SuperBaseAdapter<AppInfoBean>
 {
+	private AbsListView absListView;
 	public AppItemAdapter(AbsListView absListViewList, List<AppInfoBean> dataSource)
 	{
 		super(absListViewList, dataSource);
+		this.absListView = absListViewList;
 	}
-	
 	// 保存listView中的所有Holder
 	private List<AppItemHolder> appItemHolders = new LinkedList<>();
-	
 	// 获取listView中的所有Holder
 	public List<AppItemHolder> getAppItemHolders()
 	{
 		return appItemHolders;
 	}
-
 	// 子类实现具体的子类Holder
 	@Override
 	public BaseHolder<AppInfoBean> getSpecialHolder(int position)
 	{
-		AppItemHolder appItemHolder = new AppItemHolder();
-		
+		AppItemHolder appItemHolder = new AppItemHolder(absListView);
 		// 添加观察者
 		DownloadManager.getInstance().addObserver(appItemHolder);
-		
 		// 保存Holder
 		appItemHolders.add(appItemHolder);
-		
 		return appItemHolder;
 	}
 

@@ -61,7 +61,7 @@ public class AppDetailBottomHolder extends BaseHolder<AppInfoBean> implements On
 		 */
 		switch (downloadInfo.state)
 		{
-		case DownloadManager.STATE_UNDOWNLOAD:
+		case DownloadManager.STATE_UN_DOWNLOAD:
 			mBtnDownload.setText("下载");
 			break;
 		case DownloadManager.STATE_DOWNLOADING:
@@ -73,13 +73,13 @@ public class AppDetailBottomHolder extends BaseHolder<AppInfoBean> implements On
 			int progress = (int) (downloadInfo.curProgress * 100.f / downloadInfo.max + .5f);
 			mBtnDownload.setText(progress + "%");
 			break;
-		case DownloadManager.STATE_PAUSEDDOWNLOAD:
+		case DownloadManager.STATE_PAUSED_DOWNLOAD:
 			mBtnDownload.setText("继续下载");
 			break;
-		case DownloadManager.STATE_WAITINGDOWNLOAD:
+		case DownloadManager.STATE_WAITING_DOWNLOAD:
 			mBtnDownload.setText("等待中...");
 			break;
-		case DownloadManager.STATE_DOWNLOADFAILED:
+		case DownloadManager.STATE_DOWNLOAD_FAILED:
 			mBtnDownload.setText("重试");
 			break;
 		case DownloadManager.STATE_DOWNLOADED:
@@ -116,7 +116,7 @@ public class AppDetailBottomHolder extends BaseHolder<AppInfoBean> implements On
 			// 获取用户下载状态，根据不同的状态，点击产生不同的用户行为
 			switch (downloadInfo.state)
 			{
-			case DownloadManager.STATE_UNDOWNLOAD:
+			case DownloadManager.STATE_UN_DOWNLOAD:
 				// 去下载
 				DownloadManager.getInstance().doDownload(downloadInfo);
 				break;
@@ -124,15 +124,15 @@ public class AppDetailBottomHolder extends BaseHolder<AppInfoBean> implements On
 				// 暂停下载
 				DownloadManager.getInstance().pauseDownload(downloadInfo);
 				break;
-			case DownloadManager.STATE_PAUSEDDOWNLOAD:
+			case DownloadManager.STATE_PAUSED_DOWNLOAD:
 				// 继续下载
 				DownloadManager.getInstance().doDownload(downloadInfo);
 				break;
-			case DownloadManager.STATE_WAITINGDOWNLOAD:
+			case DownloadManager.STATE_WAITING_DOWNLOAD:
 				// 取消下载
 				DownloadManager.getInstance().cancelDownload(downloadInfo);
 				break;
-			case DownloadManager.STATE_DOWNLOADFAILED:
+			case DownloadManager.STATE_DOWNLOAD_FAILED:
 				// 重试下载
 				DownloadManager.getInstance().doDownload(downloadInfo);
 				break;

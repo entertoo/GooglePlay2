@@ -24,22 +24,22 @@ public class BaseApplication extends Application
 	// 主线程Handler
 	private static Handler mHandler;
 	
-	public static Handler getmHandler()
+	public static Handler getHandler()
 	{
 		return mHandler;
 	}
 
-	public static Context getmContext()
+	public static Context getContext()
 	{
 		return mContext;
 	}
 
-	public static Thread getmMainThread()
+	public static Thread getMainThread()
 	{
 		return mMainThread;
 	}
 
-	public static long getmMainThreadId()
+	public static long getMainThreadId()
 	{
 		return mMainThreadId;
 	}

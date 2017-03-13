@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 
 public class HomeProtocol extends BaseProtocol<HomeBean>
 {
+
 	@Override
 	public String getInterfaceKey()
 	{
@@ -16,10 +17,9 @@ public class HomeProtocol extends BaseProtocol<HomeBean>
 	@Override
 	public HomeBean parseJson(String jsonString)
 	{
+		HomeBean homeBean;
 		Gson gson = new Gson();
-		
-		HomeBean homeBean = gson.fromJson(jsonString, HomeBean.class);
-		
+		homeBean = gson.fromJson(jsonString, HomeBean.class);
 		return homeBean;
 	}
 }

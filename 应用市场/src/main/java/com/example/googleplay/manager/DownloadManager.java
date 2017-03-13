@@ -1,5 +1,17 @@
 package com.example.googleplay.manager;
 
+import com.example.googleplay.bean.AppInfoBean;
+import com.example.googleplay.bean.DownloadInfoBean;
+import com.example.googleplay.conf.Constants.URLS;
+import com.example.googleplay.factory.ThreadPoolFactory;
+import com.example.googleplay.utils.FileUtils;
+import com.example.googleplay.utils.UIUtils;
+import com.example.googleplay.utils.apkUtils;
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.http.RequestParams;
+import com.lidroid.xutils.http.ResponseStream;
+import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
+
 import java.io.File;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
@@ -7,18 +19,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
-import com.example.googleplay.bean.AppInfoBean;
-import com.example.googleplay.bean.DownloadInfoBean;
-import com.example.googleplay.conf.Constants.URLS;
-import com.example.googleplay.factory.ThreadPoolFactory;
-import com.example.googleplay.utils.apkUtils;
-import com.example.googleplay.utils.FileUtils;
-import com.example.googleplay.utils.UIUtils;
-import com.lidroid.xutils.HttpUtils;
-import com.lidroid.xutils.http.RequestParams;
-import com.lidroid.xutils.http.ResponseStream;
-import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 
 /**
  * 下载管理器，记录当前状态，暴露当前状态
@@ -28,17 +28,17 @@ import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
  */
 public class DownloadManager
 {
-	public static final int STATE_UNDOWNLOAD = 0;// 未下载
+	public static final int STATE_UN_DOWNLOAD = 0;// 未下载
 	public static final int STATE_DOWNLOADING = 1;// 下载中
-	public static final int STATE_PAUSEDDOWNLOAD = 2;// 暂停下载
-	public static final int STATE_WAITINGDOWNLOAD = 3;// 等待下载
-	public static final int STATE_DOWNLOADFAILED = 4;// 下载失败
+	public static final int STATE_PAUSED_DOWNLOAD = 2;// 暂停下载
+	public static final int STATE_WAITING_DOWNLOAD = 3;// 等待下载
+	public static final int STATE_DOWNLOAD_FAILED = 4;// 下载失败
 	public static final int STATE_DOWNLOADED = 5;// 下载完成
 	public static final int STATE_INSTALLED = 6;// 已安装
 
 	private static DownloadManager instance;
 
-	Map<String, DownloadInfoBean> downloadInfoBeans = new HashMap<String, DownloadInfoBean>();
+	private Map<String, DownloadInfoBean> downloadInfoBeans = new HashMap<>();
 
 	private DownloadManager() {
 
@@ -61,8 +61,8 @@ public class DownloadManager
 		// 保存数据
 		downloadInfoBeans.put(downloadInfoBean.packageName, downloadInfoBean);
 
-		/** 下载状态：等待下载 */
-		downloadInfoBean.state = STATE_WAITINGDOWNLOAD;
+		// 下载状态：等待下载
+		downloadInfoBean.state = STATE_WAITING_DOWNLOAD;
 		// 通知观察者
 		notifyObservers(downloadInfoBean);
 
@@ -72,18 +72,18 @@ public class DownloadManager
 		downloadInfoBean.task = downloadTask;
 
 		// 开启线程池下载
-		ThreadPoolFactory.getmDownLoadPool().execute(downloadTask);
+		ThreadPoolFactory.getDownLoadPool().execute(downloadTask);
 	}
 
-	class DownloadTask implements Runnable
+	private class DownloadTask implements Runnable
 	{
-		public void stop() {
+		private void stop() {
 			UIUtils.postTaskRemove(this);
 		}
 
 		DownloadInfoBean downloadInfoBean;
 
-		public DownloadTask(DownloadInfoBean downloadInfoBean) {
+		DownloadTask(DownloadInfoBean downloadInfoBean) {
 			super();
 			this.downloadInfoBean = downloadInfoBean;
 		}
@@ -94,50 +94,39 @@ public class DownloadManager
 				// 从绝对路径获取APP文件已经下载的大小
 				long range = getRangeFromAbsolutePath(downloadInfoBean);
 				downloadInfoBean.curProgress = range;
-
-				/** 下载状态：下载中 */
+				// 下载状态：下载中
 				downloadInfoBean.state = STATE_DOWNLOADING;
 				// 通知观察者
 				notifyObservers(downloadInfoBean);
-
 				HttpUtils httpUtils = new HttpUtils();
-
-				String url = URLS.DOWNLOADURL;
+				String url = URLS.DOWNLOAD_URL;
 				RequestParams params = new RequestParams();
 				params.addQueryStringParameter("name", downloadInfoBean.downloadUrl);
 				params.addQueryStringParameter("range", range + "");
-
 				ResponseStream responseStream = httpUtils.sendSync(HttpMethod.GET, url, params);
-
 				if (responseStream.getStatusCode() == 200) {
 					// 获取输入流
 					InputStream is = responseStream.getBaseStream();
 					// 追加写入文件
 					File saveFile = new File(downloadInfoBean.savePathAbsolute);
-
 					RandomAccessFile accessFile = new RandomAccessFile(saveFile, "rw");
-
 					// FileOutputStream fos = new FileOutputStream(saveFile, true);
 					accessFile.seek(downloadInfoBean.curProgress);
-
 					byte[] buffer = new byte[1024];
-					int length = 0;
+					int length;
 					while (-1 != (length = is.read(buffer))) {
-						if (downloadInfoBean.state == STATE_PAUSEDDOWNLOAD) {
+						if (downloadInfoBean.state == STATE_PAUSED_DOWNLOAD) {
 							break;
 						}
-
 						accessFile.write(buffer, 0, length);
 						// 进度条值
 						downloadInfoBean.curProgress += length;
-
-						/** 下载状态：下载中 */
+						// 下载状态：下载中
 						downloadInfoBean.state = STATE_DOWNLOADING;
 						// 通知观察者
 						notifyObservers(downloadInfoBean);
-
 						if (downloadInfoBean.curProgress == downloadInfoBean.max) {
-							/** 下载状态：下载完成 */
+							// 下载状态：下载完成
 							downloadInfoBean.state = STATE_DOWNLOADED;
 							// 通知观察者
 							notifyObservers(downloadInfoBean);
@@ -155,8 +144,8 @@ public class DownloadManager
 					accessFile.close();
 
 				} else {
-					/** 下载状态：下载失败 */
-					downloadInfoBean.state = STATE_DOWNLOADFAILED;
+					// 下载状态：下载失败
+					downloadInfoBean.state = STATE_DOWNLOAD_FAILED;
 					// 通知观察者
 					notifyObservers(downloadInfoBean);
 				}
@@ -164,8 +153,8 @@ public class DownloadManager
 			} catch (Exception e) {
 				e.printStackTrace();
 
-				/** 下载状态：下载失败 */
-				downloadInfoBean.state = STATE_DOWNLOADFAILED;
+				// 下载状态：下载失败
+				downloadInfoBean.state = STATE_DOWNLOAD_FAILED;
 				// 通知观察者
 				notifyObservers(downloadInfoBean);
 
@@ -208,13 +197,13 @@ public class DownloadManager
 		}
 
 		// 剩余情况：未下载
-		downloadInfo.state = STATE_UNDOWNLOAD;
+		downloadInfo.state = STATE_UN_DOWNLOAD;
 		return downloadInfo;
 
 	}
 
 	/** 进行一些常规的赋值，把AppInfoBean转换成DownloadInfoBean，除了state */
-	public DownloadInfoBean getGenerateDownloadInfo(AppInfoBean data) {
+	private DownloadInfoBean getGenerateDownloadInfo(AppInfoBean data) {
 		// apk文件下载的绝对路径
 		String dir = FileUtils.getDir("download");
 		String name = data.packageName + ".apk";
@@ -234,9 +223,8 @@ public class DownloadManager
 
 	/** 暂停下载 */
 	public void pauseDownload(DownloadInfoBean downloadInfo) {
-		downloadInfo.state = STATE_PAUSEDDOWNLOAD;
+		downloadInfo.state = STATE_PAUSED_DOWNLOAD;
 		notifyObservers(downloadInfo);
-
 		DownloadTask downloadTask = (DownloadTask) downloadInfo.task;
 		downloadTask.stop();
 	}
@@ -244,9 +232,8 @@ public class DownloadManager
 	/** 取消下载，前提是还未开始下载 */
 	public void cancelDownload(DownloadInfoBean downloadInfo) {
 		Runnable task = downloadInfo.task;
-		ThreadPoolFactory.getmDownLoadPool().remove(task);
-
-		downloadInfo.state = STATE_UNDOWNLOAD;
+		ThreadPoolFactory.getDownLoadPool().remove(task);
+		downloadInfo.state = STATE_UN_DOWNLOAD;
 		notifyObservers(downloadInfo);
 	}
 
@@ -261,7 +248,7 @@ public class DownloadManager
 		apkUtils.openApp(UIUtils.getContext(), downloadInfo.packageName);
 	}
 
-	/** ================= 自定义设计模式-begin================= */
+	// ================= 自定义设计模式-begin=================
 	/** 观察者接口 */
 	public interface DownloadStateObserver
 	{
@@ -269,7 +256,7 @@ public class DownloadManager
 	}
 
 	/** 用于保存观察者 */
-	public List<DownloadStateObserver> observers = new LinkedList<DownloadStateObserver>();
+	private List<DownloadStateObserver> observers = new LinkedList<>();
 
 	/** 添加观察者 */
 	public void addObserver(DownloadStateObserver observer) {
@@ -294,6 +281,6 @@ public class DownloadManager
 			observer.onDownloadInfoChange(downloadInfo);
 		}
 	}
-	/** ================= 自定义设计模式-end================= */
+	// ================= 自定义设计模式-end=================
 
 }

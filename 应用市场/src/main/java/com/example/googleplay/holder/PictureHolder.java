@@ -1,15 +1,5 @@
 package com.example.googleplay.holder;
 
-import java.util.List;
-
-import com.example.googleplay.R;
-import com.example.googleplay.base.BaseHolder;
-import com.example.googleplay.conf.Constants.URLS;
-import com.example.googleplay.utils.BitmapHelper;
-import com.example.googleplay.utils.UIUtils;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
-
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -21,6 +11,16 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.example.googleplay.R;
+import com.example.googleplay.base.BaseHolder;
+import com.example.googleplay.conf.Constants.URLS;
+import com.example.googleplay.utils.BitmapHelper;
+import com.example.googleplay.utils.UIUtils;
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ViewInject;
+
+import java.util.List;
 
 /**
  * 图片轮播
@@ -35,7 +35,7 @@ public class PictureHolder extends BaseHolder<List<String>> {
 	@ViewInject(R.id.item_home_picture_container_indicator)
 	LinearLayout mContainerIndicator;
 
-	private List<String> mDatas;
+	private List<String> mData;
 
 	public AutoScrollTask mAutoScrollTask;
 
@@ -56,29 +56,24 @@ public class PictureHolder extends BaseHolder<List<String>> {
 
 	@Override
 	public void refreshHolderView(List<String> data) {
-		mDatas = data;
+		mData = data;
 		PictureAdapter adapter = new PictureAdapter();
 		mViewPager.setAdapter(adapter);
-
 		// 创建点点并加入线性容器
-		creatIndicatorView();
-
+		createIndicatorView();
 		// 给轮播图片设置点击事件
-		mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
-			// 当选中轮播图片的时候的回调方法
+		mViewPager.addOnPageChangeListener(new OnPageChangeListener() {
+
 			@Override
 			public void onPageSelected(int position) {
 				// 实现图片轮播能够循环，防止越界
-				position = position % mDatas.size();
-
+				position = position % mData.size();
 				// 设置点点被点击与未被点击时的背景
-				for (int i = 0; i < mDatas.size(); i++) {
+				for (int i = 0; i < mData.size(); i++) {
 					// 通过父容器mContainerIndicator获取儿子点点indicatorView
 					View indicatorView = mContainerIndicator.getChildAt(i);
-
 					// 当当前位置是被选中位置时，设置点点的背景为选中状态，否则设置点点的背景为默认颜色
-					indicatorView.setBackgroundResource(
-							(i == position) ? R.drawable.indicator_selected : R.drawable.indicator_normal);
+					indicatorView.setBackgroundResource((i == position) ? R.drawable.indicator_selected : R.drawable.indicator_normal);
 				}
 			}
 
@@ -97,7 +92,7 @@ public class PictureHolder extends BaseHolder<List<String>> {
 
 		int curItem = Integer.MAX_VALUE / 2;
 		// 得到余数
-		int diff = curItem % mDatas.size();
+		int diff = curItem % mData.size();
 		// 设置第一次默认轮播图片为第一张图片
 		mViewPager.setCurrentItem(curItem - diff);
 
@@ -116,7 +111,6 @@ public class PictureHolder extends BaseHolder<List<String>> {
 			public boolean onTouch(View v, MotionEvent event) {
 				switch (event.getAction()) {
 				case MotionEvent.ACTION_DOWN:
-					System.out.println("按下");
 					mDownX = event.getX();
 					mDownY = event.getY();
 					mDownTime = System.currentTimeMillis();
@@ -124,10 +118,8 @@ public class PictureHolder extends BaseHolder<List<String>> {
 					mAutoScrollTask.stop();
 					break;
 				case MotionEvent.ACTION_MOVE:
-					System.out.println("移动...");
 					break;
 				case MotionEvent.ACTION_CANCEL:
-					System.out.println("取消");
 					mAutoScrollTask.start();
 					break;
 				case MotionEvent.ACTION_UP:
@@ -138,10 +130,9 @@ public class PictureHolder extends BaseHolder<List<String>> {
 						long upTime = System.currentTimeMillis();
 						if (upTime - mDownTime < 500) {
 							//点击
-							lunboPicClick(mViewPager.getCurrentItem() % mDatas.size());
+							lunboPicClick(mViewPager.getCurrentItem() % mData.size());
 						}
 					}
-					System.out.println("松开");
 					// 按下弹起的时候开始轮播
 					mAutoScrollTask.start();
 					break;
@@ -155,24 +146,21 @@ public class PictureHolder extends BaseHolder<List<String>> {
 	}
 	
 	private void lunboPicClick(int item) {
-		System.out.println("点击");
 		Toast.makeText(UIUtils.getContext(), "点击了第" + (item + 1)+ "张图片", Toast.LENGTH_SHORT).show();
 	}
 
 	/** 创建点点并加入线性容器 */
-	public void creatIndicatorView() {
+	private void createIndicatorView() {
 		// 点点
 		View indicatorView;
-
 		// 根据数据的个数创建点点
-		for (int i = 0; i < mDatas.size(); i++) {
+		for (int i = 0; i < mData.size(); i++) {
 			// 创建点点
 			indicatorView = new View(UIUtils.getContext());
 			// 设置点点背景
 			indicatorView.setBackgroundResource(R.drawable.indicator_normal);
 			// 设置点点宽高
-			LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(UIUtils.dip2px(5),
-					UIUtils.dip2px(5));
+			LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(UIUtils.dip2px(5), UIUtils.dip2px(5));
 			// 设置点点的左边距
 			layoutParams.leftMargin = UIUtils.dip2px(5);
 			// 设置点点的下边距
@@ -182,14 +170,13 @@ public class PictureHolder extends BaseHolder<List<String>> {
 			if (i == 0) {
 				indicatorView.setBackgroundResource(R.drawable.indicator_selected);
 			}
-
 			// 在容器中加入点点
 			mContainerIndicator.addView(indicatorView, layoutParams);
 		}
 	}
 
 	/** 自动轮播图片 */
-	public class AutoScrollTask  implements Runnable {
+	public class AutoScrollTask implements Runnable {
 		
 		// 开始轮播
 		public void start() {
@@ -215,11 +202,11 @@ public class PictureHolder extends BaseHolder<List<String>> {
 	}
 
 	/** 继承PagerAdapter */
-	class PictureAdapter extends PagerAdapter {
+	private class PictureAdapter extends PagerAdapter {
 		@Override
 		public int getCount() {
-			if (mDatas != null) {
-				// return mDatas.size();
+			if (mData != null) {
+				// return mData.size();
 				return Integer.MAX_VALUE;
 			}
 			return 0;
@@ -233,20 +220,15 @@ public class PictureHolder extends BaseHolder<List<String>> {
 		@Override
 		public Object instantiateItem(ViewGroup container, int position) {
 			// 实现图片轮播能够循环，防止越界
-			position = position % mDatas.size();
-
+			position = position % mData.size();
 			ImageView iv = new ImageView(UIUtils.getContext());
 			// 使用 FILL 方式缩放图像
 			iv.setScaleType(ScaleType.FIT_XY);
-
 			iv.setImageResource(R.drawable.ic_default);
-
 			// 获取图片完整路径
-			String uri = URLS.IMAGEBASEURL + mDatas.get(position);
+			String uri = URLS.IMAGE_BASE_URL + mData.get(position);
 			BitmapHelper.display(iv, uri);
-
 			container.addView(iv);
-			
 			return iv;
 		}
 

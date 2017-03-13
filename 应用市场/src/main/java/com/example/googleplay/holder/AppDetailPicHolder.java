@@ -36,13 +36,13 @@ public class AppDetailPicHolder extends BaseHolder<AppInfoBean>
 		List<String> screen = data.screen;
 		for(int i = 0; i < screen.size(); i++)
 		{
-			String uri = URLS.IMAGEBASEURL + screen.get(i);
+			String uri = URLS.IMAGE_BASE_URL + screen.get(i);
 			
 			SmartImageView iv = new SmartImageView(UIUtils.getContext());
 			BitmapHelper.display(iv, uri);
 			
 			// 获取屏幕宽度
-			int widthPixels = UIUtils.getResouce().getDisplayMetrics().widthPixels;
+			int widthPixels = UIUtils.getResource().getDisplayMetrics().widthPixels;
 			// 减去内边距
 			widthPixels = widthPixels - mPicIvContainer.getPaddingLeft() - mPicIvContainer.getPaddingRight();
 			// widthPixels/3

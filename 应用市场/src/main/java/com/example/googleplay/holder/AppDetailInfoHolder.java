@@ -66,7 +66,7 @@ public class AppDetailInfoHolder extends BaseHolder<AppInfoBean>
 		
 		InfoIvIcon.setImageResource(R.drawable.ic_default);
 		
-		String ivIconUrl = URLS.IMAGEBASEURL + data.iconUrl;
+		String ivIconUrl = URLS.IMAGE_BASE_URL + data.iconUrl;
 		BitmapHelper.display(InfoIvIcon, ivIconUrl);
 	}
 	

@@ -55,7 +55,7 @@ public class AppDetailSafeHolder extends BaseHolder<AppInfoBean> implements OnCl
 
 			// 设置安全图标
 			ImageView ivIcon = new ImageView(UIUtils.getContext());
-			String safeUri = URLS.IMAGEBASEURL + safeInfoBean.safeUrl;
+			String safeUri = URLS.IMAGE_BASE_URL + safeInfoBean.safeUrl;
 			BitmapHelper.display(ivIcon, safeUri);
 			// 加入容器
 			mPicContainer.addView(ivIcon);
@@ -67,7 +67,7 @@ public class AppDetailSafeHolder extends BaseHolder<AppInfoBean> implements OnCl
 
 			// 安全描述图标
 			ImageView ivDes = new ImageView(UIUtils.getContext());
-			String safeDesUri = URLS.IMAGEBASEURL + safeInfoBean.safeDesUrl;
+			String safeDesUri = URLS.IMAGE_BASE_URL + safeInfoBean.safeDesUrl;
 			BitmapHelper.display(ivDes, safeDesUri);
 
 			// 安全描述内容

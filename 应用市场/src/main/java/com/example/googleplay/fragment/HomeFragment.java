@@ -22,8 +22,8 @@ import java.util.List;
  */
 public class HomeFragment extends BaseFragment
 {
-	private List<AppInfoBean> mDatas;// ListView的数据源
-	private List<String> mPicutures; // 轮播图
+	private List<AppInfoBean> mData;// ListView的数据源
+	private List<String> mPictures; // 轮播图
 	private HomeProtocol mHomeProtocol;
 	private PictureHolder mPictureHolder;
 	private HomeAdapter mHomeAdapter;
@@ -52,8 +52,8 @@ public class HomeFragment extends BaseFragment
 			}
 
 			// 保存数据
-			mDatas = mHomeBean.list;
-			mPicutures = mHomeBean.picture;
+			mData = mHomeBean.list;
+			mPictures = mHomeBean.picture;
 
 			return LoadedResult.SUCCESS;
 		} catch (Exception e) {
@@ -74,13 +74,13 @@ public class HomeFragment extends BaseFragment
 		// 图片轮播
 		mPictureHolder = new PictureHolder();
 		// 把数据传过去，触发设置数据和刷新视图
-		mPictureHolder.setDataAndRefreshHolderView(mPicutures);
+		mPictureHolder.setDataAndRefreshHolderView(mPictures);
 
 		// 将图片轮播加入ListView的头部
 		View headView = mPictureHolder.getHolderView();
 		listView.addHeaderView(headView);
 
-		mHomeAdapter = new HomeAdapter(listView, mDatas);
+		mHomeAdapter = new HomeAdapter(listView, mData);
 		listView.setAdapter(mHomeAdapter);
 
 		return listView;
@@ -97,7 +97,7 @@ public class HomeFragment extends BaseFragment
 		// 真正去加载更多网络数据，子类复写父类的方法
 		@Override
 		public List<AppInfoBean> onLoadMore() throws Exception {
-			homeLoadMore = loadMore(mDatas.size());
+			homeLoadMore = loadMore(mData.size());
 			return homeLoadMore;
 		}
 	}
@@ -106,14 +106,12 @@ public class HomeFragment extends BaseFragment
 	public List<AppInfoBean> loadMore(int index) throws Exception {
 
 		HomeBean homeBeanMore = mHomeProtocol.loadData(index);
-
 		if (homeBeanMore == null) {
 			return null;
 		}
 		if (homeBeanMore.list == null || homeBeanMore.list.size() == 0) {
 			return null;
 		}
-
 		return homeBeanMore.list;
 	}
 

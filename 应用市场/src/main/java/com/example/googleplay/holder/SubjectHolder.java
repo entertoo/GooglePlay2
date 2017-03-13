@@ -37,7 +37,7 @@ public class SubjectHolder extends BaseHolder<SubjectInfoBean>
 	public void refreshHolderView(SubjectInfoBean data) {
 		subjectTvTitle.setText(data.des);
 
-		String uri = URLS.IMAGEBASEURL + data.url;
+		String uri = URLS.IMAGE_BASE_URL + data.url;
 		BitmapHelper.display(subjectIvIcon, uri);
 	}
 

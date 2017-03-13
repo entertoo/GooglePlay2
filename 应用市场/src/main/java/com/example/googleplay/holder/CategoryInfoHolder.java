@@ -63,7 +63,7 @@ public class CategoryInfoHolder extends BaseHolder<CategoryInfoBean>
 		{
 			mTvName.setText(name);
 			mIvIcon.setImageResource(R.drawable.ic_default);
-			BitmapHelper.display(mIvIcon, URLS.IMAGEBASEURL + url);
+			BitmapHelper.display(mIvIcon, URLS.IMAGE_BASE_URL + url);
 			
 			((ViewGroup)mTvName.getParent()).setVisibility(View.VISIBLE);
 			

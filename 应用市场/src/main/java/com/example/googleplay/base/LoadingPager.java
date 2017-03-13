@@ -50,7 +50,7 @@ public abstract class LoadingPager extends FrameLayout
 	//加载为空页面
 	private View mEmptyView;
 	//加载成功页面
-	private View mSuceessView;
+	private View mSuccessView;
 
 	// 构造方法
 	public LoadingPager(Context context)
@@ -69,7 +69,6 @@ public abstract class LoadingPager extends FrameLayout
 		mLoadingView = View.inflate(UIUtils.getContext(), R.layout.pager_loading, null);
 		// 加入帧布局
 		this.addView(mLoadingView);
-		
 		// * 2.错误页面
 		mErrorView = View.inflate(UIUtils.getContext(), R.layout.pager_error, null);
 		// 点击重新加载数据按钮
@@ -84,12 +83,10 @@ public abstract class LoadingPager extends FrameLayout
 		});
 		// 加入帧布局
 		this.addView(mErrorView);
-		
 		// * 3.空页面
 		mEmptyView = View.inflate(UIUtils.getContext(), R.layout.pager_empty, null);
 		// 加入帧布局
 		this.addView(mEmptyView);
-		
 		// 刷新UI
 		refreshUI();
 	}
@@ -107,19 +104,19 @@ public abstract class LoadingPager extends FrameLayout
 		mErrorView.setVisibility((mCurState == STATE_ERROR) ? VISIBLE : INVISIBLE);
 		// 控制emptyView空白视图的隐藏和显示
 		mEmptyView.setVisibility((mCurState == STATE_EMPTY) ? VISIBLE : INVISIBLE);
-		// 控制suceessView成功视图的隐藏和显示
-		if(mSuceessView == null && mCurState == STATE_SUCCESS)
+		// 控制successView成功视图的隐藏和显示
+		if(mSuccessView == null && mCurState == STATE_SUCCESS)
 		{
 			// 创建成功视图
-			mSuceessView = initSuccessView();
+			mSuccessView = initSuccessView();
 			// 加入帧布局
-			this.addView(mSuceessView);
+			this.addView(mSuccessView);
 		}
 		
-		if(mSuceessView != null)
+		if(mSuccessView != null)
 		{
 			// 控制successView视图的隐藏和显示
-			mSuceessView.setVisibility((mCurState == STATE_SUCCESS) ? VISIBLE : INVISIBLE);
+			mSuccessView.setVisibility((mCurState == STATE_SUCCESS) ? VISIBLE : INVISIBLE);
 		}
 	}
 	
@@ -139,18 +136,15 @@ public abstract class LoadingPager extends FrameLayout
 	 */
 	public void loadData()
 	{
-		int state;
 		// 被触发加载--->如果当前状态为非成功且当前状态非加载中，开启线程池加载数据。
 		if(mCurState != STATE_SUCCESS && mCurState != STATE_LOADING)
 		{
 			// 设置状态为加载中
-			state = STATE_LOADING;
-			mCurState = state;
+			mCurState = STATE_LOADING;
 			// 刷新加载中的视图
 			refreshUI();
-			
 			//线程池
-			ThreadPoolFactory.getmNormalPool().execute(new LoadDataTask());
+			ThreadPoolFactory.getNormalPool().execute(new LoadDataTask());
 		}
 	}
 	
@@ -169,7 +163,7 @@ public abstract class LoadingPager extends FrameLayout
 				@Override
 				public void run()
 				{
-					// 再次刷新刷UI，
+					// 再次刷新刷UI
 					refreshUI();
 				}
 			});
@@ -201,7 +195,7 @@ public abstract class LoadingPager extends FrameLayout
 			return state;
 		}
 		
-		private LoadedResult(int state)
+		LoadedResult(int state)
 		{
 			this.state = state;
 		}

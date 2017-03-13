@@ -1,7 +1,5 @@
 package com.example.googleplay.views;
 
-import com.example.googleplay.R;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -14,13 +12,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.googleplay.R;
+
+/**
+ * 环形进度条
+ */
 public class CircleProgressView extends LinearLayout 
 {
 	private ImageView mIcon;
 	private TextView mNote;
 	private long mMax;
 	private long mProgress;
-	private boolean mProgressEnable;
+	private boolean mProgressEnable = true;
 
 	public void setProgressEnable(boolean progressEnable)
 	{
@@ -56,9 +59,7 @@ public class CircleProgressView extends LinearLayout
 	public CircleProgressView(Context context, AttributeSet attrs)
 	{
 		super(context, attrs);
-
 		View view = View.inflate(context, R.layout.circleprogressview, this);
-
 		mIcon = (ImageView) view.findViewById(R.id.circleprogress_iv_icon);
 		mNote = (TextView) view.findViewById(R.id.circleprogress_tv_download);
 	}
@@ -73,7 +74,6 @@ public class CircleProgressView extends LinearLayout
 	protected void dispatchDraw(Canvas canvas)// 绘制孩子
 	{
 		super.dispatchDraw(canvas);
-		
 		if(mProgressEnable)
 		{
 			// 绘制圆弧的画板属性，如颜色，是否填充等。
@@ -87,7 +87,6 @@ public class CircleProgressView extends LinearLayout
 			float sweepAngle = (mProgress * 360.f / mMax + .5f);
 			// 是否用半径
 			boolean useCenter = false;
-
 			paint.setColor(Color.BLUE);
 			// 设置边框
 			paint.setStyle(Style.STROKE);
@@ -95,7 +94,6 @@ public class CircleProgressView extends LinearLayout
 			paint.setStrokeWidth(3);
 			// 消除锯齿
 			paint.setAntiAlias(true);
-			
 			// 绘制圆弧
 			canvas.drawArc(oval, startAngle, sweepAngle, useCenter, paint);
 		}

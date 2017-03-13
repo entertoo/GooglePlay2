@@ -1,14 +1,6 @@
 package com.example.googleplay.base;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.Map;
+import android.support.annotation.NonNull;
 
 import com.example.googleplay.conf.Constants;
 import com.example.googleplay.conf.Constants.URLS;
@@ -21,51 +13,57 @@ import com.lidroid.xutils.http.RequestParams;
 import com.lidroid.xutils.http.ResponseStream;
 import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.util.Map;
+
 public abstract class BaseProtocol<T>
 {
 	/** 加载数据 */
 	public T loadData(int index) throws Exception {
-		/** 先读取本地缓存，看看有没有数据，有数据就返回 */
+		// 先读取本地缓存，看看有没有数据，有数据就返回
 		T localData = getDataFromLocal(index);
 		if (localData != null) {
 			return localData;
 		}
-
-		/** 无缓冲的话就发送网络请求获取数据 */
+		// 无缓冲的话就发送网络请求获取数据
 		String jsonString = getDataFromNet(index);
-
-		/** json解析 */
-		T jsonBean = parseJson(jsonString);
-
-		return jsonBean;
+		// json解析
+		return parseJson(jsonString);
 	}
 
 	/** 获取本地缓存数据 */
-	public T getDataFromLocal(int index) {
+	private T getDataFromLocal(int index) {
 		File cacheFile = getCacheFile(index);
 		if (cacheFile.exists()) {
-			BufferedReader reader = null;
+			BufferedReader bufferedReader = null;
 			try {
-				reader = new BufferedReader(new FileReader(cacheFile));
+				bufferedReader = new BufferedReader(new FileReader(cacheFile));
 				// 读取第一行插入时间
-				String timeTimeMillis = reader.readLine();
-				if ((System.currentTimeMillis() - Long.parseLong(timeTimeMillis)) < Constants.PROTOCOLOUTTIME) {
+				String timeTimeMillis = bufferedReader.readLine();
+				if ((System.currentTimeMillis() - Long.parseLong(timeTimeMillis)) < Constants.PROTOCOL_OUT_TIME) {
 					// 读取缓存内容
-					String jsonString = reader.readLine();
+					String jsonString = bufferedReader.readLine();
 					// 返回 json解析内容
 					return parseJson(jsonString);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
-				IOUtils.close(reader);
+				IOUtils.close(bufferedReader);
 			}
 		}
 		return null;
 	}
 
 	/** 获取缓存文件 */
-	public File getCacheFile(int index) {
+	private File getCacheFile(int index) {
 		// 缓存存放目录：sdcard/Android/data/包名/json
 		String dir = FileUtils.getDir("json");
 		// 缓存文件名称：interfaceKey + "." + index / packageName;
@@ -79,9 +77,12 @@ public abstract class BaseProtocol<T>
 				name = getInterfaceKey() + "." + packageName;
 			}
 		}
+		return getFile(dir, name);
+	}
 
-		File cacheFile = new File(dir, name);
-		return cacheFile;
+	@NonNull
+	private File getFile(String dir, String name) {
+		return new File(dir, name);
 	}
 
 	/** 获取其他参数 */
@@ -90,13 +91,12 @@ public abstract class BaseProtocol<T>
 	}
 
 	/** 获取网络数据 */
-	public String getDataFromNet(int index) throws HttpException, IOException {
+	private String getDataFromNet(int index) throws HttpException, IOException {
 		// 发送网络请求
 		HttpUtils httpUtils = new HttpUtils();
-
 		// http://localhost:8080/GooglePlayServer/detail?packageName=com.itheima.www
-		// http://localhost:8080/GooglePlayServer/home?index=
-		String url = URLS.BASEURL + getInterfaceKey();
+		// http://localhost:8080/GooglePlayServer/home?index=0
+		String url = URLS.BASE_URL + getInterfaceKey();
 		RequestParams params = new RequestParams();
 
 		// 获取拓展的参数，如果拓展参数为空，说明没有重写getExtraParams()方法，默认返回为空
@@ -114,11 +114,11 @@ public abstract class BaseProtocol<T>
 		// 读取网络数据
 		String jsonString = responseStream.readString();
 
-		/** 保存网络数据到本地 */
+		// 保存网络数据到本地
 		File cacheFile = getCacheFile(index);
 		BufferedWriter writer = null;
 		try {
-			/** 保存网络数据到本地 */
+			// 保存网络数据到本地
 			writer = new BufferedWriter(new FileWriter(cacheFile));
 			writer.write(System.currentTimeMillis() + "");// 第一行写入时间
 			writer.write("\r\n");// 换行
@@ -135,7 +135,7 @@ public abstract class BaseProtocol<T>
 	/** 获取访问URL名称例如home */
 	public abstract String getInterfaceKey();
 
-	/** 解析json数据 */
+	// 解析json数据
 	// public abstract T parseJson(String jsonString);
 
 	/** 泛型解析json数据 */

@@ -7,7 +7,7 @@ public class DownloadInfoBean
 	public String downloadUrl;
 	public String	savePathAbsolute;
 	public String packageName;
-	public int state = DownloadManager.STATE_UNDOWNLOAD;
+	public int state = DownloadManager.STATE_UN_DOWNLOAD;
 	
 	public long max;
 	public long curProgress;

@@ -9,11 +9,11 @@ import com.example.googleplay.manager.ThreadPoolProxy;
  */
 public class ThreadPoolFactory
 {
-	static ThreadPoolProxy mNormalPool;
-	static ThreadPoolProxy mDownLoadPool;
+	private static ThreadPoolProxy mNormalPool;
+	private static ThreadPoolProxy mDownLoadPool;
 	
 	/**得到一般的线程池*/
-	public static ThreadPoolProxy getmNormalPool()
+	public static ThreadPoolProxy getNormalPool()
 	{
 		if(null == mNormalPool)
 		{
@@ -30,7 +30,7 @@ public class ThreadPoolFactory
 	}
 	
 	/**得到下载的线程池*/
-	public static ThreadPoolProxy getmDownLoadPool()
+	public static ThreadPoolProxy getDownLoadPool()
 	{
 		if(null == mDownLoadPool)
 		{

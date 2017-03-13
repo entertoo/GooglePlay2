@@ -10,8 +10,9 @@ import android.view.View;
  */
 public abstract class BaseHolder<HolderBeanType>
 {
+	protected HolderBeanType mData;
 	//相当于BaseAdapter中getView方法中的缓存视图convertView
-	public View mHolderView;
+	private View mHolderView;
 	
 	public View getHolderView()
 	{
@@ -32,6 +33,7 @@ public abstract class BaseHolder<HolderBeanType>
 	 */
 	public void setDataAndRefreshHolderView(HolderBeanType data)
 	{
+		this.mData = data;
 		refreshHolderView(data);
 	}
 	

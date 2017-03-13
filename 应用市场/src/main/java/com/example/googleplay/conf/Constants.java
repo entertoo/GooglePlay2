@@ -5,9 +5,9 @@ import com.example.googleplay.utils.LogUtils;
 public class Constants
 {
 	// ALL显示所有的日志，OFF关闭日志的显示
-	public static final int DEBUGLEVEL = LogUtils.LEVEL_ALL;
-	public static final int PAGERSIZE = 20;
-	public static final long PROTOCOLOUTTIME = 5 * 60 * 1000;
+	public static final int DEBUG_LEVEL = LogUtils.LEVEL_ALL;
+	public static final int PAGER_SIZE = 20;
+	public static final long PROTOCOL_OUT_TIME = 5 * 60 * 1000;
 	
 	/**
 	 * 请求地址：url
@@ -16,7 +16,7 @@ public class Constants
 	 * 返回参数
 	 * 
 	 * 
-	 * 服务器地址——BASEURL
+	 * 服务器地址——BASE_URL
 	 * http://127.0.0.1:8090/ 服务器在手机上
 	 * http://192.168.1.3.8080/GooglePlayServer/ 服务器在电脑上，直接ip访问
 	 * http://10.0.2.2:8080/GooglePlayServer/ 服务器在电脑上，android模拟器访问
@@ -37,12 +37,13 @@ public class Constants
 	 */
 	public static final class URLS
 	{
-		// public static final String BASEURL = "http://10.0.2.2:8080/GooglePlayServer/";
-		public static final String BASEURL = "http://192.168.31.92:8080/GooglePlayServer/";
+		// public static final String BASE_URL = "http://10.0.2.2:8080/GooglePlayServer/";
+		// public static final String BASE_URL = "http://192.168.31.92:8080/GooglePlayServer/";
+		public static final String BASE_URL = "http://10.139.24.160:8080/GooglePlayServer/";
 		// http://localhost:8080/GooglePlayServer/image?name=
-		public static final String IMAGEBASEURL = BASEURL + "image?name=";
+		public static final String IMAGE_BASE_URL = BASE_URL + "image?name=";
 		// http://localhost:8080/GooglePlayServer/download?name=app/com.itheima.www/com.itheima.www.apk&range=0
-		public static final String DOWNLOADURL = BASEURL + "download";
+		public static final String DOWNLOAD_URL = BASE_URL + "download";
 	}
 
 	public static final class PAY

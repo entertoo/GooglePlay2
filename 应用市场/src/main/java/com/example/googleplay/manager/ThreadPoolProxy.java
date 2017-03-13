@@ -16,11 +16,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class ThreadPoolProxy
 {
-	ThreadPoolExecutor mExecutor;
-	
-	int mCorePoolSize;//核心线程数
-    int mMaximumPoolSize;//最大线程数
-    long mKeepAliveTime;//保持时间
+	private ThreadPoolExecutor mExecutor;
+	private int mCorePoolSize;//核心线程数
+    private int mMaximumPoolSize;//最大线程数
+    private long mKeepAliveTime;//保持时间
 	
 	public ThreadPoolProxy(int corePoolSize, int maximumPoolSize, long keepAliveTime)
 	{
@@ -40,7 +39,7 @@ public class ThreadPoolProxy
 				if(null == mExecutor)
 				{
 					TimeUnit unit = TimeUnit.MILLISECONDS;//毫秒
-			        BlockingQueue<Runnable> workQueue = new LinkedBlockingDeque<Runnable>(); //（无界队列）可变的阻塞队列 
+			        BlockingQueue<Runnable> workQueue = new LinkedBlockingDeque<>(); //（无界队列）可变的阻塞队列
 			        ThreadFactory threadFactory = Executors.defaultThreadFactory();//默认线程工厂
 			        RejectedExecutionHandler handler = new ThreadPoolExecutor.AbortPolicy();//异常捕获器，弃任务并抛出RejectedExecutionException异常。
 					

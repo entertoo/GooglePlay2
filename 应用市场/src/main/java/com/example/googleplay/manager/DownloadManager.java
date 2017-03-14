@@ -3,14 +3,11 @@ package com.example.googleplay.manager;
 import com.example.googleplay.bean.AppInfoBean;
 import com.example.googleplay.bean.DownloadInfoBean;
 import com.example.googleplay.conf.Constants.URLS;
+import com.example.googleplay.factory.OkHttpUtil;
 import com.example.googleplay.factory.ThreadPoolFactory;
 import com.example.googleplay.utils.FileUtils;
 import com.example.googleplay.utils.UIUtils;
 import com.example.googleplay.utils.apkUtils;
-import com.lidroid.xutils.HttpUtils;
-import com.lidroid.xutils.http.RequestParams;
-import com.lidroid.xutils.http.ResponseStream;
-import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -19,6 +16,10 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import okhttp3.FormBody;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * 下载管理器，记录当前状态，暴露当前状态
@@ -93,15 +94,25 @@ public class DownloadManager {
                 downloadInfoBean.state = STATE_DOWNLOADING;
                 // 通知观察者
                 notifyObservers(downloadInfoBean);
-                HttpUtils httpUtils = new HttpUtils();
+                //HttpUtils httpUtils = new HttpUtils();
                 String url = URLS.DOWNLOAD_URL;
-                RequestParams params = new RequestParams();
+                /*RequestParams params = new RequestParams();
                 params.addQueryStringParameter("name", downloadInfoBean.downloadUrl);
                 params.addQueryStringParameter("range", range + "");
-                ResponseStream responseStream = httpUtils.sendSync(HttpMethod.GET, url, params);
-                if (responseStream.getStatusCode() == 200) {
+                ResponseStream responseStream = httpUtils.sendSync(HttpMethod.GET, url, params);*/
+
+                // okHttp
+                FormBody.Builder builder = new FormBody.Builder();
+                builder.add("name", downloadInfoBean.downloadUrl);
+                builder.add("range", String.valueOf(range));
+                Request request = new Request.Builder()
+                        .url(url)
+                        .post(builder.build())
+                        .build();
+                Response response = OkHttpUtil.getOkHttpClient().newCall(request).execute();
+                if (response.code() == 200) {
                     // 获取输入流
-                    InputStream is = responseStream.getBaseStream();
+                    InputStream is = response.body().byteStream();
                     // 追加写入文件
                     File saveFile = new File(downloadInfoBean.savePathAbsolute);
                     //RandomAccessFile accessFile = new RandomAccessFile(saveFile, "rw");

@@ -128,21 +128,21 @@ public abstract class BaseProtocol<T> {
         String jsonString = responseStream.readString();*/
 
         // okHttp
-        FormBody.Builder formBodyBuilder = new FormBody.Builder();
+        FormBody.Builder builder = new FormBody.Builder();
 
         if(getExtraParams() == null){
-            formBodyBuilder.add("index", String.valueOf(index));
+            builder.add("index", String.valueOf(index));
         } else {
             Map<String, String> extraParams = getExtraParams();
             for (Map.Entry<String, String> entry : extraParams.entrySet()) {
                 String key = entry.getKey();// "packageName"
                 String packageName = entry.getValue(); // packageName
-                formBodyBuilder.add(key, packageName);
+                builder.add(key, packageName);
             }
         }
         Request request = new Request.Builder()
                 .url(url)
-                .post(formBodyBuilder.build())
+                .post(builder.build())
                 .build();
         Response response = OkHttpUtil.getOkHttpClient().newCall(request).execute();
         String jsonString = response.body().string();

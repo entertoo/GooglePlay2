@@ -4,14 +4,12 @@ import android.support.annotation.NonNull;
 
 import com.example.googleplay.conf.Constants;
 import com.example.googleplay.conf.Constants.URLS;
+import com.example.googleplay.factory.OkHttpUtil;
 import com.example.googleplay.utils.FileUtils;
 import com.example.googleplay.utils.IOUtils;
 import com.google.gson.Gson;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
-import com.lidroid.xutils.http.RequestParams;
-import com.lidroid.xutils.http.ResponseStream;
-import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -22,6 +20,10 @@ import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Map;
+
+import okhttp3.FormBody;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public abstract class BaseProtocol<T> {
 
@@ -107,9 +109,10 @@ public abstract class BaseProtocol<T> {
         // http://localhost:8080/GooglePlayServer/detail?packageName=com.itheima.www
         // http://localhost:8080/GooglePlayServer/home?index=0
         String url = URLS.BASE_URL + getInterfaceKey();
-        RequestParams params = new RequestParams();
 
         // 获取拓展的参数，如果拓展参数为空，说明没有重写getExtraParams()方法，默认返回为空
+        /*
+         RequestParams params = new RequestParams();
         if (getExtraParams() == null) {
             params.addQueryStringParameter("index", index + "");
         } else {
@@ -122,8 +125,27 @@ public abstract class BaseProtocol<T> {
         }
         ResponseStream responseStream = httpUtils.sendSync(HttpMethod.GET, url, params);
         // 读取网络数据
-        String jsonString = responseStream.readString();
+        String jsonString = responseStream.readString();*/
 
+        // okHttp
+        FormBody.Builder formBodyBuilder = new FormBody.Builder();
+
+        if(getExtraParams() == null){
+            formBodyBuilder.add("index", String.valueOf(index));
+        } else {
+            Map<String, String> extraParams = getExtraParams();
+            for (Map.Entry<String, String> entry : extraParams.entrySet()) {
+                String key = entry.getKey();// "packageName"
+                String packageName = entry.getValue(); // packageName
+                formBodyBuilder.add(key, packageName);
+            }
+        }
+        Request request = new Request.Builder()
+                .url(url)
+                .post(formBodyBuilder.build())
+                .build();
+        Response response = OkHttpUtil.getOkHttpClient().newCall(request).execute();
+        String jsonString = response.body().string();
         // 保存网络数据到本地
         File cacheFile = getCacheFile(index);
         BufferedWriter writer = null;

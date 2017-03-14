@@ -51,9 +51,11 @@ public class AppDetailSafeHolder extends BaseHolder<AppInfoBean> implements OnCl
             mPicContainer.addView(ivIcon);
 
             // 线性布局，把安全描述包裹起来
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,UIUtils.dip2px(30));
             LinearLayout ll = new LinearLayout(UIUtils.getContext());
+            ll.setLayoutParams(layoutParams);
             ll.setOrientation(LinearLayout.HORIZONTAL);
-            ll.setPadding(7, 5, 7, 5);
+            ll.setPadding(UIUtils.dip2px(7), UIUtils.dip2px(5), UIUtils.dip2px(7), UIUtils.dip2px(5));
 
             // 安全描述图标
             ImageView ivDes = new ImageView(UIUtils.getContext());

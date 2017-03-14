@@ -13,6 +13,8 @@ import android.os.Looper;
  */
 public class BaseApplication extends Application {
 
+    public Application INSTANCE;
+
     // 上下文
     private static Context mContext;
     // 主线程
@@ -46,6 +48,7 @@ public class BaseApplication extends Application {
 
     @Override
     public void onCreate() {
+        INSTANCE = this;
         /*
 		 * 上下文
 		 * getApplicationContext()取的是这个应用程序的Context，

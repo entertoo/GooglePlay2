@@ -17,73 +17,71 @@ import java.util.List;
 
 /**
  * 游戏
- * 
- * @author haopi
  *
+ * @author haopi
  */
-public class GameFragment extends BaseFragment
-{
-	private GameProtocol mGameProtocol;
-	private List<AppInfoBean> mData;
-	private GameAdapter mGameAdapter;
+public class GameFragment extends BaseFragment {
 
-	@Override
-	public LoadedResult initData() {
-		mGameProtocol = new GameProtocol();
-		try {
-			mData = mGameProtocol.loadData(0);
-			return checkState(mData);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return LoadedResult.ERROR;
-		}
-	}
+    private GameProtocol mGameProtocol;
+    private List<AppInfoBean> mData;
+    private GameAdapter mGameAdapter;
 
-	@Override
-	public View initSuccessView() {
-		ListView listView = ListViewFactory.createListView();
-		mGameAdapter = new GameAdapter(listView, mData);
-		listView.setAdapter(mGameAdapter);
-		return listView;
-	}
+    @Override
+    public LoadedResult initData() {
+        mGameProtocol = new GameProtocol();
+        try {
+            mData = mGameProtocol.loadData(0);
+            return checkState(mData);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return LoadedResult.ERROR;
+        }
+    }
 
-	private class GameAdapter extends AppItemAdapter
-	{
-		List<AppInfoBean> gameLoadMore;
+    @Override
+    public View initSuccessView() {
+        ListView listView = ListViewFactory.createListView();
+        mGameAdapter = new GameAdapter(listView, mData);
+        listView.setAdapter(mGameAdapter);
+        return listView;
+    }
 
-		GameAdapter(AbsListView absListViewList, List<AppInfoBean> dataSource) {
-			super(absListViewList, dataSource);
-		}
+    private class GameAdapter extends AppItemAdapter {
+        List<AppInfoBean> gameLoadMore;
 
-		@Override
-		public List<AppInfoBean> onLoadMore() throws Exception {
-			gameLoadMore = mGameProtocol.loadData(mData.size());
-			return gameLoadMore;
-		}
-	}
+        GameAdapter(AbsListView absListViewList, List<AppInfoBean> dataSource) {
+            super(absListViewList, dataSource);
+        }
 
-	@Override
-	public void onPause() {
-		// 移除监听
-		if (mGameAdapter != null && mGameAdapter.getAppItemHolders().size() != 0) {
-			for (AppItemHolder appItemHolder : mGameAdapter.getAppItemHolders()) {
-				DownloadManager.getInstance().deleteObserver(appItemHolder);
-			}
-		}
-		super.onPause();
-	}
+        @Override
+        public List<AppInfoBean> onLoadMore() throws Exception {
+            gameLoadMore = mGameProtocol.loadData(mData.size());
+            return gameLoadMore;
+        }
+    }
 
-	@Override
-	public void onResume() {
-		// 添加监听
-		if (mGameAdapter != null && mGameAdapter.getAppItemHolders().size() != 0) {
-			for (AppItemHolder appItemHolder : mGameAdapter.getAppItemHolders()) {
-				DownloadManager.getInstance().addObserver(appItemHolder);
-			}
-			// 手动刷新
-			mGameAdapter.notifyDataSetChanged();
-		}
+    @Override
+    public void onPause() {
+        // 移除监听
+        if (mGameAdapter != null && mGameAdapter.getAppItemHolders().size() != 0) {
+            for (AppItemHolder appItemHolder : mGameAdapter.getAppItemHolders()) {
+                DownloadManager.getInstance().deleteObserver(appItemHolder);
+            }
+        }
+        super.onPause();
+    }
 
-		super.onResume();
-	}
+    @Override
+    public void onResume() {
+        // 添加监听
+        if (mGameAdapter != null && mGameAdapter.getAppItemHolders().size() != 0) {
+            for (AppItemHolder appItemHolder : mGameAdapter.getAppItemHolders()) {
+                DownloadManager.getInstance().addObserver(appItemHolder);
+            }
+            // 手动刷新
+            mGameAdapter.notifyDataSetChanged();
+        }
+
+        super.onResume();
+    }
 }

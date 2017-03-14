@@ -6,11 +6,12 @@ import android.support.v4.view.ViewPager;
 
 /**
  * ViewPager的动画效果
- * @author haopi
  *
+ * @author haopi
  */
 @SuppressLint("NewApi")
 public class DepthPageTransformer implements ViewPager.PageTransformer {
+
     private static final float MIN_SCALE = 0.75f;
 
     public void transformPage(View view, float position) {

@@ -7,38 +7,34 @@ import com.google.gson.Gson;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DetailProtocol extends BaseProtocol<AppInfoBean>
-{
-	private String packageName;
+public class DetailProtocol extends BaseProtocol<AppInfoBean> {
 
-	public DetailProtocol(String packageName)
-	{
-		super();
-		this.packageName = packageName;
-	}
+    private String packageName;
 
-	// http://localhost:8080/GooglePlayServer/home?index=0
-	// http://localhost:8080/GooglePlayServer/detail?packageName=com.itheima.www
-	
-	@Override
-	public String getInterfaceKey()
-	{
-		return "detail";
-	}
-	
-	@Override
-	public Map<String, String> getExtraParams()
-	{
-		Map<String, String> map = new HashMap<>();
-		map.put("packageName", packageName);
-		return map;
-	}
+    public DetailProtocol(String packageName) {
+        super();
+        this.packageName = packageName;
+    }
 
-	@Override
-	public AppInfoBean parseJson(String jsonString)
-	{
-		Gson gson = new Gson();
-		return gson.fromJson(jsonString, AppInfoBean.class);
-	}
+    // http://localhost:8080/GooglePlayServer/home?index=0
+    // http://localhost:8080/GooglePlayServer/detail?packageName=com.itheima.www
+
+    @Override
+    public String getInterfaceKey() {
+        return "detail";
+    }
+
+    @Override
+    public Map<String, String> getExtraParams() {
+        Map<String, String> map = new HashMap<>();
+        map.put("packageName", packageName);
+        return map;
+    }
+
+    @Override
+    public AppInfoBean parseJson(String jsonString) {
+        Gson gson = new Gson();
+        return gson.fromJson(jsonString, AppInfoBean.class);
+    }
 
 }

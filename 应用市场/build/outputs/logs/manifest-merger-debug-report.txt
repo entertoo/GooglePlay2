@@ -39,6 +39,7 @@ MERGED from [com.android.support:support-core-ui:25.2.0] /Users/haoping/.android
 MERGED from [com.android.support:support-core-utils:25.2.0] /Users/haoping/.android/build-cache/ad6d84a9af9cdb3bfa87b9bee78c15b903ceb974/output/AndroidManifest.xml:21:5-23:61
 MERGED from [com.android.support:animated-vector-drawable:25.2.0] /Users/haoping/.android/build-cache/76754a9921c2e7775a8ae6743ef39945d1ce5144/output/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:25.2.0] /Users/haoping/.android/build-cache/1d5e56e3b3066d72b8d5c4a28a08aeaac4c0fb24/output/AndroidManifest.xml:21:5-43
+MERGED from [com.jakewharton:butterknife:8.5.1] /Users/haoping/.android/build-cache/5e47eeb1dbc3b4f1e46244da9d1b2dfe58246e4a/output/AndroidManifest.xml:5:5-43
 MERGED from [com.android.support:support-compat:25.2.0] /Users/haoping/.android/build-cache/44d809c14cb4d71e9a4c32717e94b3058b08b614/output/AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:25.2.0] /Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/AndroidManifest.xml:23:9-75

@@ -17,57 +17,56 @@ import java.util.List;
 
 /**
  * 专题
- * @author haopi
  *
+ * @author haopi
  */
-public class SubjectFragment extends BaseFragment
-{
-	// subject数据
-	private List<SubjectInfoBean> mData;
-	// subject数据协议
-	private SubjectProtocol mSubjectProtocol;
+public class SubjectFragment extends BaseFragment {
 
-	@Override
-	public LoadedResult initData() {
-		mSubjectProtocol = new SubjectProtocol();
-		try {
-			// 加载subject数据
-			mData = mSubjectProtocol.loadData(0);
-			// 检查数据
-			return checkState(mData);
+    // subject数据
+    private List<SubjectInfoBean> mData;
+    // subject数据协议
+    private SubjectProtocol mSubjectProtocol;
 
-		} catch (Exception e) {
-			e.printStackTrace();
-			return LoadedResult.ERROR;
-		}
-	}
+    @Override
+    public LoadedResult initData() {
+        mSubjectProtocol = new SubjectProtocol();
+        try {
+            // 加载subject数据
+            mData = mSubjectProtocol.loadData(0);
+            // 检查数据
+            return checkState(mData);
 
-	@Override
-	public View initSuccessView() {
-		// 创建subject里面的listView列表
-		ListView listView = ListViewFactory.createListView();
-		// 设置适配器，传入数据
-		listView.setAdapter(new SubjectAdapter(listView, mData));
-		return listView;
-	}
+        } catch (Exception e) {
+            e.printStackTrace();
+            return LoadedResult.ERROR;
+        }
+    }
 
-	private class SubjectAdapter extends SuperBaseAdapter<SubjectInfoBean>
-	{
-		List<SubjectInfoBean> subjectLoadMore;
+    @Override
+    public View initSuccessView() {
+        // 创建subject里面的listView列表
+        ListView listView = ListViewFactory.createListView();
+        // 设置适配器，传入数据
+        listView.setAdapter(new SubjectAdapter(listView, mData));
+        return listView;
+    }
 
-		SubjectAdapter(AbsListView absListViewList, List<SubjectInfoBean> dataSource) {
-			super(absListViewList, dataSource);
-		}
+    private class SubjectAdapter extends SuperBaseAdapter<SubjectInfoBean> {
+        List<SubjectInfoBean> subjectLoadMore;
 
-		@Override
-		public BaseHolder<SubjectInfoBean> getSpecialHolder(int position) {
-			return new SubjectHolder();
-		}
+        SubjectAdapter(AbsListView absListViewList, List<SubjectInfoBean> dataSource) {
+            super(absListViewList, dataSource);
+        }
 
-		@Override
-		public List<SubjectInfoBean> onLoadMore() throws Exception {
-			subjectLoadMore = mSubjectProtocol.loadData(mData.size());
-			return subjectLoadMore;
-		}
-	}
+        @Override
+        public BaseHolder<SubjectInfoBean> getSpecialHolder(int position) {
+            return new SubjectHolder();
+        }
+
+        @Override
+        public List<SubjectInfoBean> onLoadMore() throws Exception {
+            subjectLoadMore = mSubjectProtocol.loadData(mData.size());
+            return subjectLoadMore;
+        }
+    }
 }

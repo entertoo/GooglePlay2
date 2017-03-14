@@ -17,10 +17,11 @@ import com.example.googleplay.base.BaseHolder;
 import com.example.googleplay.conf.Constants.URLS;
 import com.example.googleplay.utils.BitmapHelper;
 import com.example.googleplay.utils.UIUtils;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * 图片轮播
@@ -29,14 +30,11 @@ import java.util.List;
  *
  */
 public class PictureHolder extends BaseHolder<List<String>> {
-	@ViewInject(R.id.item_home_picture_pager)
-	ViewPager mViewPager;
 
-	@ViewInject(R.id.item_home_picture_container_indicator)
-	LinearLayout mContainerIndicator;
+	@BindView(R.id.item_home_picture_pager) ViewPager mViewPager;
+	@BindView(R.id.item_home_picture_container_indicator) LinearLayout mContainerIndicator;
 
 	private List<String> mData;
-
 	public AutoScrollTask mAutoScrollTask;
 
 	public AutoScrollTask getAutoScrollTask() {
@@ -49,8 +47,7 @@ public class PictureHolder extends BaseHolder<List<String>> {
 	@Override
 	public View initHolderView() {
 		View view = View.inflate(UIUtils.getContext(), R.layout.item_home_picture, null);
-		// 注入
-		ViewUtils.inject(this, view);
+		ButterKnife.bind(this, view);
 		return view;
 	}
 

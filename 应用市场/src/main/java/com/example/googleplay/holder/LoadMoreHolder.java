@@ -6,49 +6,43 @@ import android.widget.LinearLayout;
 import com.example.googleplay.R;
 import com.example.googleplay.base.BaseHolder;
 import com.example.googleplay.utils.UIUtils;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
-public class LoadMoreHolder extends BaseHolder<Integer>
-{
-	@ViewInject(R.id.item_loadmore_container_loading)
-	LinearLayout mContainerLoading;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
-	@ViewInject(R.id.item_loadmore_container_retry)
-	LinearLayout mContainerRetry;
+public class LoadMoreHolder extends BaseHolder<Integer> {
 
-	public static final int STATE_LOADING = 0;
-	public static final int STATE_RETRY = 1;
-	public static final int STATE_NONE = 2;
+    @BindView(R.id.item_loadmore_container_loading) LinearLayout mContainerLoading;
+    @BindView(R.id.item_loadmore_container_retry) LinearLayout mContainerRetry;
 
-	@Override
-	public View initHolderView()
-	{
-		View view = View.inflate(UIUtils.getContext(), R.layout.item_loadmore, null);
-		//注入
-		ViewUtils.inject(this, view);
-		return view;
-	}
+    public static final int STATE_LOADING = 0;
+    public static final int STATE_RETRY = 1;
+    public static final int STATE_NONE = 2;
 
-	@Override
-	public void refreshHolderView(Integer state)
-	{
-		mContainerLoading.setVisibility(View.INVISIBLE);
-		mContainerRetry.setVisibility(View.INVISIBLE);
-		switch (state)
-		{
-		case STATE_LOADING:
-			mContainerLoading.setVisibility(View.VISIBLE);
-			break;
-		case STATE_RETRY:
-			mContainerRetry.setVisibility(View.VISIBLE);
-			break;
-		case STATE_NONE:
+    @Override
+    public View initHolderView() {
+        View view = View.inflate(UIUtils.getContext(), R.layout.item_loadmore, null);
+        ButterKnife.bind(this, view);
+        return view;
+    }
 
-			break;
+    @Override
+    public void refreshHolderView(Integer state) {
+        mContainerLoading.setVisibility(View.INVISIBLE);
+        mContainerRetry.setVisibility(View.INVISIBLE);
+        switch (state) {
+            case STATE_LOADING:
+                mContainerLoading.setVisibility(View.VISIBLE);
+                break;
+            case STATE_RETRY:
+                mContainerRetry.setVisibility(View.VISIBLE);
+                break;
+            case STATE_NONE:
 
-		default:
-			break;
-		}
-	}
+                break;
+
+            default:
+                break;
+        }
+    }
 }

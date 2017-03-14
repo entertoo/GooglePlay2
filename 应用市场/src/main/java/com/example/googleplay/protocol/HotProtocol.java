@@ -6,22 +6,20 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
 
-public class HotProtocol extends BaseProtocol<List<String>>
-{
+public class HotProtocol extends BaseProtocol<List<String>> {
 
-	@Override
-	public String getInterfaceKey()
-	{
-		return "hot";
-	}
+    @Override
+    public String getInterfaceKey() {
+        return "hot";
+    }
 
-	@Override
-	public List<String> parseJson(String jsonString)
-	{
-		List<String> hotList;
-		Gson gson = new Gson();
-		hotList = gson.fromJson(jsonString, new TypeToken<List<String>>(){}.getType());
-		return hotList;
-	}
+    @Override
+    public List<String> parseJson(String jsonString) {
+        List<String> hotList;
+        Gson gson = new Gson();
+        hotList = gson.fromJson(jsonString, new TypeToken<List<String>>() {
+        }.getType());
+        return hotList;
+    }
 
 }

@@ -7,22 +7,21 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
 
-public class AppProtocol extends BaseProtocol<List<AppInfoBean>>
-{
-	@Override
-	public String getInterfaceKey()
-	{
-		return "app";
-	}
+public class AppProtocol extends BaseProtocol<List<AppInfoBean>> {
 
-	@Override
-	public List<AppInfoBean> parseJson(String jsonString)
-	{
+    @Override
+    public String getInterfaceKey() {
+        return "app";
+    }
+
+    @Override
+    public List<AppInfoBean> parseJson(String jsonString) {
         List<AppInfoBean> appList;
-		Gson gson = new Gson();
-		// 泛型解析
-		appList = gson.fromJson(jsonString, new TypeToken<List<AppInfoBean>>(){}.getType());
-		return appList;
-	}
+        Gson gson = new Gson();
+        // 泛型解析
+        appList = gson.fromJson(jsonString, new TypeToken<List<AppInfoBean>>() {
+        }.getType());
+        return appList;
+    }
 
 }

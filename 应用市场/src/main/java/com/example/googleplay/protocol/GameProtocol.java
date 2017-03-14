@@ -7,8 +7,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
 
-public class GameProtocol extends BaseProtocol<List<AppInfoBean>>
-{
+public class GameProtocol extends BaseProtocol<List<AppInfoBean>> {
 
 	@Override
 	public String getInterfaceKey()

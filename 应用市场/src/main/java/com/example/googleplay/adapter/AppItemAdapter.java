@@ -16,48 +16,44 @@ import com.example.googleplay.utils.UIUtils;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AppItemAdapter extends SuperBaseAdapter<AppInfoBean>
-{
-	private AbsListView absListView;
-	public AppItemAdapter(AbsListView absListViewList, List<AppInfoBean> dataSource)
-	{
-		super(absListViewList, dataSource);
-		this.absListView = absListViewList;
-	}
-	// 保存listView中的所有Holder
-	private List<AppItemHolder> appItemHolders = new LinkedList<>();
-	// 获取listView中的所有Holder
-	public List<AppItemHolder> getAppItemHolders()
-	{
-		return appItemHolders;
-	}
-	// 子类实现具体的子类Holder
-	@Override
-	public BaseHolder<AppInfoBean> getSpecialHolder(int position)
-	{
-		AppItemHolder appItemHolder = new AppItemHolder(absListView);
-		// 添加观察者
-		DownloadManager.getInstance().addObserver(appItemHolder);
-		// 保存Holder
-		appItemHolders.add(appItemHolder);
-		return appItemHolder;
-	}
+public class AppItemAdapter extends SuperBaseAdapter<AppInfoBean> {
 
-	// 统一重写item点击事件
-	@Override
-	public void onNormalItemClick(AdapterView<?> parent, View view, int position, long id)
-	{
-		// 把包名传过去
-		goToDetailActivity(mDataSource.get(position).packageName);
-	}
+    public AppItemAdapter(AbsListView absListViewList, List<AppInfoBean> dataSource) {
+        super(absListViewList, dataSource);
+    }
 
-	// 跳转到APP详情界面
-	private void goToDetailActivity(String packageName)
-	{
-		Intent intent = new Intent(UIUtils.getContext(), DetailActivity.class);
-		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		intent.putExtra("packageName", packageName);
-		UIUtils.getContext().startActivity(intent);
-	}
+    // 保存listView中的所有Holder
+    private List<AppItemHolder> appItemHolders = new LinkedList<>();
+
+    // 获取listView中的所有Holder
+    public List<AppItemHolder> getAppItemHolders() {
+        return appItemHolders;
+    }
+
+    // 子类实现具体的子类Holder
+    @Override
+    public BaseHolder<AppInfoBean> getSpecialHolder(int position) {
+        AppItemHolder appItemHolder = new AppItemHolder();
+        // 添加观察者
+        DownloadManager.getInstance().addObserver(appItemHolder);
+        // 保存Holder
+        appItemHolders.add(appItemHolder);
+        return appItemHolder;
+    }
+
+    // 统一重写item点击事件
+    @Override
+    public void onNormalItemClick(AdapterView<?> parent, View view, int position, long id) {
+        // 把包名传过去
+        goToDetailActivity(mDataSource.get(position).packageName);
+    }
+
+    // 跳转到APP详情界面
+    private void goToDetailActivity(String packageName) {
+        Intent intent = new Intent(UIUtils.getContext(), DetailActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("packageName", packageName);
+        UIUtils.getContext().startActivity(intent);
+    }
 
 }

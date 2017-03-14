@@ -16,10 +16,6 @@
 
 package com.astuetz;
 
-import java.util.Locale;
-
-import com.astuetz.pagerslidingtabstrip.R;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -43,6 +39,10 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.astuetz.pagerslidingtabstrip.R;
+
+import java.util.Locale;
 
 public class PagerSlidingTabStripExtends extends HorizontalScrollView
 {
@@ -367,7 +367,7 @@ public class PagerSlidingTabStripExtends extends HorizontalScrollView
 		}
 
 		// Draw the specified Rect using the specified paint
-		//canvas.drawRect(lineLeft, height - indicatorHeight, lineRight, height, rectPaint);
+		canvas.drawRect(lineLeft, height - indicatorHeight, lineRight, height, rectPaint);
 
 		/*
 		 * -----绘制indicator为三角形------ 
@@ -388,7 +388,7 @@ public class PagerSlidingTabStripExtends extends HorizontalScrollView
 		path.lineTo(x3, y3);
 		path.lineTo(x1, y1);
 
-		canvas.drawPath(path, rectPaint);
+		//canvas.drawPath(path, rectPaint);
 		// draw underline
 
 		rectPaint.setColor(underlineColor);

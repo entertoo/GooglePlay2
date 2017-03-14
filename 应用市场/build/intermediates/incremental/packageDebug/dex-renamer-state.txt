@@ -1,0 +1,4 @@
+#Tue Mar 14 14:45:10 CST 2017
+base.0=/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/应用市场/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+renamed.0=classes.dex
+file.0=/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/应用市场/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex

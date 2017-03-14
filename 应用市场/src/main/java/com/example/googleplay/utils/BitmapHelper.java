@@ -1,8 +1,9 @@
 package com.example.googleplay.utils;
 
-import android.view.View;
+import android.content.Context;
+import android.widget.ImageView;
 
-import com.lidroid.xutils.BitmapUtils;
+import com.bumptech.glide.Glide;
 
 /**
  * bitmapUtils.display(container, uri)
@@ -11,13 +12,11 @@ import com.lidroid.xutils.BitmapUtils;
  */
 public class BitmapHelper {
 
-    public static BitmapUtils bitmapUtils;
-
-    static {
-        bitmapUtils = new BitmapUtils(UIUtils.getContext());
+    public static void display(Context context, ImageView container, String uri) {
+        Glide.with(context).load(uri).into(container);
     }
 
-    public static <T extends View> void display(T container, String uri) {
-        bitmapUtils.display(container, uri);
+    public static void display(ImageView container, String uri) {
+        Glide.with(UIUtils.getContext()).load(uri).into(container);
     }
 }

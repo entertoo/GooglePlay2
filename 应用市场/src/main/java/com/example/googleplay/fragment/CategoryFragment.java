@@ -1,6 +1,8 @@
 package com.example.googleplay.fragment;
 
-import java.util.List;
+import android.view.View;
+import android.widget.AbsListView;
+import android.widget.ListView;
 
 import com.example.googleplay.base.BaseFragment;
 import com.example.googleplay.base.BaseHolder;
@@ -12,9 +14,7 @@ import com.example.googleplay.holder.CategoryInfoHolder;
 import com.example.googleplay.holder.CategoryTitleHolder;
 import com.example.googleplay.protocol.CategoryProtocol;
 
-import android.view.View;
-import android.widget.AbsListView;
-import android.widget.ListView;
+import java.util.List;
 
 /**
  * 分类
@@ -25,16 +25,14 @@ import android.widget.ListView;
 public class CategoryFragment extends BaseFragment
 {
 
-	private List<CategoryInfoBean> mLoadData;
-	private CategoryProtocol mCategoryProtocol;
+	private List<CategoryInfoBean> mData;
 
 	@Override
 	public LoadedResult initData() {
-		mCategoryProtocol = new CategoryProtocol();
+		CategoryProtocol mCategoryProtocol = new CategoryProtocol();
 		try {
-			mLoadData = mCategoryProtocol.loadData(0);
-			System.out.println(mLoadData);
-			return checkState(mLoadData);
+			mData = mCategoryProtocol.loadData(0);
+			return checkState(mData);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return LoadedResult.ERROR;
@@ -44,20 +42,20 @@ public class CategoryFragment extends BaseFragment
 	@Override
 	public View initSuccessView() {
 		ListView listView = ListViewFactory.createListView();
-		listView.setAdapter(new CategoryAdapter(listView, mLoadData));
+		listView.setAdapter(new CategoryAdapter(listView, mData));
 		return listView;
 	}
 
-	class CategoryAdapter extends SuperBaseAdapter<CategoryInfoBean>
+	private class CategoryAdapter extends SuperBaseAdapter<CategoryInfoBean>
 	{
 
-		public CategoryAdapter(AbsListView absListViewList, List<CategoryInfoBean> dataSource) {
+		CategoryAdapter(AbsListView absListViewList, List<CategoryInfoBean> dataSource) {
 			super(absListViewList, dataSource);
 		}
 
 		@Override
 		public BaseHolder<CategoryInfoBean> getSpecialHolder(int position) {
-			CategoryInfoBean categoryInfoBean = mLoadData.get(position);
+			CategoryInfoBean categoryInfoBean = mData.get(position);
 			if (categoryInfoBean.isTitle) {
 				return new CategoryTitleHolder();
 			} else {
@@ -74,7 +72,7 @@ public class CategoryFragment extends BaseFragment
 		// 复写父类方法，类型有：0，1，2
 		@Override
 		public int getNormalType(int position) {
-			CategoryInfoBean categoryInfoBean = mLoadData.get(position);
+			CategoryInfoBean categoryInfoBean = mData.get(position);
 			if (categoryInfoBean.isTitle) {
 				// 返回一般类型
 				return super.getNormalType(position);

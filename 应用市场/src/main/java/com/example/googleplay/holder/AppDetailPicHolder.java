@@ -1,6 +1,8 @@
 package com.example.googleplay.holder;
 
-import java.util.List;
+import android.view.View;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.LinearLayout;
 
 import com.example.googleplay.R;
 import com.example.googleplay.base.BaseHolder;
@@ -12,9 +14,7 @@ import com.example.googleplay.views.SmartImageView;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
-import android.view.View;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.LinearLayout;
+import java.util.List;
 
 public class AppDetailPicHolder extends BaseHolder<AppInfoBean>
 {
@@ -33,12 +33,13 @@ public class AppDetailPicHolder extends BaseHolder<AppInfoBean>
 	@Override
 	public void refreshHolderView(AppInfoBean data)
 	{
+		SmartImageView iv;
 		List<String> screen = data.screen;
 		for(int i = 0; i < screen.size(); i++)
 		{
 			String uri = URLS.IMAGE_BASE_URL + screen.get(i);
 			
-			SmartImageView iv = new SmartImageView(UIUtils.getContext());
+			iv = new SmartImageView(UIUtils.getContext());
 			BitmapHelper.display(iv, uri);
 			
 			// 获取屏幕宽度

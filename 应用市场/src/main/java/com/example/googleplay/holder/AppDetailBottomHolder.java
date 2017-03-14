@@ -1,5 +1,10 @@
 package com.example.googleplay.holder;
 
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
+
 import com.example.googleplay.R;
 import com.example.googleplay.base.BaseHolder;
 import com.example.googleplay.bean.AppInfoBean;
@@ -11,11 +16,6 @@ import com.example.googleplay.views.ProgressButton;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.Toast;
-
 public class AppDetailBottomHolder extends BaseHolder<AppInfoBean> implements OnClickListener, DownloadStateObserver
 {
 	@ViewInject(R.id.app_detail_download_btn_favo)
@@ -25,14 +25,13 @@ public class AppDetailBottomHolder extends BaseHolder<AppInfoBean> implements On
 	@ViewInject(R.id.app_detail_download_btn_download)
 	ProgressButton mBtnDownload;
 
-	private AppInfoBean mDada;
+	private DownloadInfoBean downloadInfo;
 
 	@Override
 	public View initHolderView()
 	{
 		View view = View.inflate(UIUtils.getContext(), R.layout.app_detail_bottom, null);
 		ViewUtils.inject(this, view);
-
 		mBtnFavo.setOnClickListener(this);
 		mBtnShare.setOnClickListener(this);
 		mBtnDownload.setOnClickListener(this);
@@ -42,19 +41,18 @@ public class AppDetailBottomHolder extends BaseHolder<AppInfoBean> implements On
 	@Override
 	public void refreshHolderView(AppInfoBean data)
 	{
-		mDada = data;
-
 		// 获取用户下载状态，根据不同的状态给用户不同的提示
-		DownloadInfoBean downloadInfo = DownloadManager.getInstance().getDownloadInfo(data);
-
+		downloadInfo = DownloadManager.getInstance().getDownloadInfo(data);
 		// 观察者观察 状态改变
 		refreshProgressBtnUI(downloadInfo);
 	}
 
-	// 刷新下载按钮视图
-	public void refreshProgressBtnUI(DownloadInfoBean downloadInfo)
+	/**
+	 # 刷新下载按钮视图
+	 */
+	private void refreshProgressBtnUI(DownloadInfoBean downloadInfo)
 	{
-		
+		int progress;
 		mBtnDownload.setBackgroundResource(R.drawable.selector_app_detail_bottom_normal);
 		/*
 		 * 未下载 下载中 暂停下载 等待下载 下载失败 下载完成 已安装
@@ -69,8 +67,7 @@ public class AppDetailBottomHolder extends BaseHolder<AppInfoBean> implements On
 			mBtnDownload.setBackgroundResource(R.drawable.selector_app_detail_bottom_downloading);
 			mBtnDownload.setMax(downloadInfo.max);
 			mBtnDownload.setProgress(downloadInfo.curProgress);
-
-			int progress = (int) (downloadInfo.curProgress * 100.f / downloadInfo.max + .5f);
+			progress = (int) (downloadInfo.curProgress * 100.f / downloadInfo.max + .5f);
 			mBtnDownload.setText(progress + "%");
 			break;
 		case DownloadManager.STATE_PAUSED_DOWNLOAD:
@@ -80,6 +77,7 @@ public class AppDetailBottomHolder extends BaseHolder<AppInfoBean> implements On
 			mBtnDownload.setText("等待中...");
 			break;
 		case DownloadManager.STATE_DOWNLOAD_FAILED:
+			mBtnDownload.setProgressEnable(false);
 			mBtnDownload.setText("重试");
 			break;
 		case DownloadManager.STATE_DOWNLOADED:
@@ -110,8 +108,6 @@ public class AppDetailBottomHolder extends BaseHolder<AppInfoBean> implements On
 
 			break;
 		case R.id.app_detail_download_btn_download:
-			
-			DownloadInfoBean downloadInfo = DownloadManager.getInstance().getDownloadInfo(mDada);
 
 			// 获取用户下载状态，根据不同的状态，点击产生不同的用户行为
 			switch (downloadInfo.state)
@@ -139,7 +135,6 @@ public class AppDetailBottomHolder extends BaseHolder<AppInfoBean> implements On
 			case DownloadManager.STATE_DOWNLOADED:
 				// 安装应用
 				DownloadManager.getInstance().installApk(downloadInfo);
-
 				break;
 			case DownloadManager.STATE_INSTALLED:
 				// 打开应用
@@ -166,7 +161,7 @@ public class AppDetailBottomHolder extends BaseHolder<AppInfoBean> implements On
 		 *  当前bottomHolder的数据为=mDada.packageName
 		 *  观察者被通知传过来的数据为=downloadInfo.packageName
 		 */
-		if(!downloadInfo.packageName.equals(mDada.packageName))
+		if(!downloadInfo.packageName.equals(mData.packageName))
 		{
 			return;
 		}
@@ -184,14 +179,12 @@ public class AppDetailBottomHolder extends BaseHolder<AppInfoBean> implements On
 	/** 添加观察者并刷新按钮提示 */
 	public void addObserverAndRefreshBtn()
 	{
-		DownloadManager instance = DownloadManager.getInstance();
-
-		instance.addObserver(this);
-
+		DownloadManager downloadManager = DownloadManager.getInstance();
+		downloadManager.addObserver(this);
 		// 开启监听的时候，手动的去获取最新的状态
-		DownloadInfoBean Info = instance.getDownloadInfo(mDada);
+		DownloadInfoBean Info = downloadManager.getDownloadInfo(mData);
 		// 通知观察者方式一
-		instance.notifyObservers(Info);
+		downloadManager.notifyObservers(Info);
 		// 通知观察者方式二
 		//refreshProgressBtnUI(Info);
 	}

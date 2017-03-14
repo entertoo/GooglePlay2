@@ -1,14 +1,14 @@
 package com.example.googleplay.protocol;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.googleplay.base.BaseProtocol;
+import com.example.googleplay.bean.CategoryInfoBean;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.example.googleplay.base.BaseProtocol;
-import com.example.googleplay.bean.CategoryInfoBean;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CategoryProtocol extends BaseProtocol<List<CategoryInfoBean>>
 {
@@ -22,8 +22,8 @@ public class CategoryProtocol extends BaseProtocol<List<CategoryInfoBean>>
 	@Override
 	public List<CategoryInfoBean> parseJson(String jsonString)
 	{
-		/** android自带节点解析 */
-		List<CategoryInfoBean> categoryList = new ArrayList<CategoryInfoBean>();
+		// android自带节点解析
+		List<CategoryInfoBean> categoryList = new ArrayList<>();
 		try
 		{
 			// 获取根节点,为2数组
@@ -70,7 +70,6 @@ public class CategoryProtocol extends BaseProtocol<List<CategoryInfoBean>>
 					categoryList.add(infoBean);
 				}
 			}
-
 			return categoryList;
 
 		}

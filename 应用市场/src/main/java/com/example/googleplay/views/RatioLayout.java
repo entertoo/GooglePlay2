@@ -27,14 +27,12 @@ public class RatioLayout extends FrameLayout
 		super(context, attrs);
 
 		// obtainStyledAttributes 从R.styleable.RatioLayout中获取样式的所有属性
-		// TypedArray typedArray = context.obtainStyledAttributes(attrs,
-		// R.styleable.RatioLayout);
+		// TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RatioLayout);
 
 		// index: Index of attribute to retrieve.从属性数组中获取属性值picRatio="2.43"
 		// mPicRatio = typedArray.getFloat(R.styleable.RatioLayout_picRatio, 0);
 		// 从属性数组中获取属性值relative="height"
-		// mRelative = typedArray.getInt(R.styleable.RatioLayout_relative,
-		// RELATIVE_WIDTH);
+		// mRelative = typedArray.getInt(R.styleable.RatioLayout_relative, RELATIVE_WIDTH);
 
 		// Give back a previously retrieved array, for later re-use.
 		// typedArray.recycle();

@@ -1,5 +1,11 @@
 package com.example.googleplay.activity;
 
+import android.content.Intent;
+import android.support.v7.app.ActionBar;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.FrameLayout;
+
 import com.example.googleplay.R;
 import com.example.googleplay.base.BaseActivity;
 import com.example.googleplay.base.LoadingPager;
@@ -16,17 +22,10 @@ import com.example.googleplay.utils.UIUtils;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
-import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.FrameLayout;
-
 public class DetailActivity extends BaseActivity
 {
 	private String mPackageName;
-	private DetailProtocol mDetailProtocol;
-	private AppInfoBean mLoadData;
+	private AppInfoBean mDetailData;
 	private LoadingPager mLoadingPager;
 	private AppDetailBottomHolder mAppDetailBottomHolder;
 
@@ -39,6 +38,7 @@ public class DetailActivity extends BaseActivity
 		mPackageName = intent.getStringExtra("packageName");
 	}
 
+	@Override
 	public void initView()
 	{
 		mLoadingPager = new LoadingPager(UIUtils.getContext())
@@ -81,11 +81,11 @@ public class DetailActivity extends BaseActivity
 	// 数据加载
 	private LoadedResult onInitData()
 	{
-		mDetailProtocol = new DetailProtocol(mPackageName);
+		DetailProtocol mDetailProtocol = new DetailProtocol(mPackageName);
 		try
 		{
-			mLoadData = mDetailProtocol.loadData(0);
-			if (mLoadData == null)
+			mDetailData = mDetailProtocol.loadData(0);
+			if (mDetailData == null)
 			{
 				return LoadedResult.EMPTY;
 			}
@@ -121,31 +121,31 @@ public class DetailActivity extends BaseActivity
 		AppDetailInfoHolder appDetailInfoHolder = new AppDetailInfoHolder();
 		appDetailInfo.addView(appDetailInfoHolder.getHolderView());
 		// 设置数据刷新视图
-		appDetailInfoHolder.setDataAndRefreshHolderView(mLoadData);
+		appDetailInfoHolder.setDataAndRefreshHolderView(mDetailData);
 
 		// 安全部分
 		AppDetailSafeHolder appDetailSafeHolder = new AppDetailSafeHolder();
 		appDetailSafe.addView(appDetailSafeHolder.getHolderView());
 		// 设置数据刷新视图
-		appDetailSafeHolder.setDataAndRefreshHolderView(mLoadData);
+		appDetailSafeHolder.setDataAndRefreshHolderView(mDetailData);
 
 		// 截图部分
 		AppDetailPicHolder appDetailPicHolder = new AppDetailPicHolder();
 		appDetailPic.addView(appDetailPicHolder.getHolderView());
 		// 设置数据刷新视图
-		appDetailPicHolder.setDataAndRefreshHolderView(mLoadData);
+		appDetailPicHolder.setDataAndRefreshHolderView(mDetailData);
 
 		// 简介部分
 		AppDetailDesHolder appDetailDesHolder = new AppDetailDesHolder();
 		appDetailDes.addView(appDetailDesHolder.getHolderView());
 		// 设置数据刷新视图
-		appDetailDesHolder.setDataAndRefreshHolderView(mLoadData);
+		appDetailDesHolder.setDataAndRefreshHolderView(mDetailData);
 
 		// 底部下载部分
 		mAppDetailBottomHolder = new AppDetailBottomHolder();
 		appDetailBottom.addView(mAppDetailBottomHolder.getHolderView());
 		// 设置数据刷新视图
-		mAppDetailBottomHolder.setDataAndRefreshHolderView(mLoadData);
+		mAppDetailBottomHolder.setDataAndRefreshHolderView(mDetailData);
 
 		// 添加观察者
 		DownloadManager.getInstance().addObserver(mAppDetailBottomHolder);

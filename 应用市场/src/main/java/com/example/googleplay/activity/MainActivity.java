@@ -133,7 +133,6 @@ public class MainActivity extends BaseActivity
 			{
 				// 获取缓存中的fragment
 				BaseFragment fragment = FragmentFactory.getFragment(position);
-
 				// 如果fragment不为空，触发加载数据
 				if (fragment != null)
 				{
@@ -164,7 +163,7 @@ public class MainActivity extends BaseActivity
 		switch (item.getItemId())
 		{
 		case android.R.id.home:
-			/**
+			/*
 			 * 使用ActionBarDrawerToggle的onOptionsItemSelected方法。
 			 * 该方法activity的onOptionsItemSelected方法中根据传递进来的menu item做了
 			 * 在activity的onOptionsItemSelected方法中判断点击事件是否来自于app图标，

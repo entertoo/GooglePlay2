@@ -1,5 +1,8 @@
 package com.example.googleplay.holder;
 
+import android.view.View;
+import android.widget.TextView;
+
 import com.example.googleplay.R;
 import com.example.googleplay.base.BaseHolder;
 import com.example.googleplay.bean.SubjectInfoBean;
@@ -9,9 +12,6 @@ import com.example.googleplay.utils.UIUtils;
 import com.example.googleplay.views.SmartImageView;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
-
-import android.view.View;
-import android.widget.TextView;
 
 public class SubjectHolder extends BaseHolder<SubjectInfoBean>
 {
@@ -29,14 +29,12 @@ public class SubjectHolder extends BaseHolder<SubjectInfoBean>
 		ViewUtils.inject(this, view);
 		// 设置容器宽高比
 		subjectIvIcon.setRatio((float) 2.43);
-		
 		return view;
 	}
 
 	@Override
 	public void refreshHolderView(SubjectInfoBean data) {
 		subjectTvTitle.setText(data.des);
-
 		String uri = URLS.IMAGE_BASE_URL + data.url;
 		BitmapHelper.display(subjectIvIcon, uri);
 	}

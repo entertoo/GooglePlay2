@@ -1,5 +1,10 @@
 package com.example.googleplay.holder;
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
+
 import com.example.googleplay.R;
 import com.example.googleplay.base.BaseHolder;
 import com.example.googleplay.bean.AppInfoBean;
@@ -9,11 +14,6 @@ import com.example.googleplay.utils.StringUtils;
 import com.example.googleplay.utils.UIUtils;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
-
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RatingBar;
-import android.widget.TextView;
 
 public class AppDetailInfoHolder extends BaseHolder<AppInfoBean>
 {
@@ -54,12 +54,12 @@ public class AppDetailInfoHolder extends BaseHolder<AppInfoBean>
 		infoRbStar.setRating(data.stars);
 		InfoTvName.setText(data.name);
 		
-		String downloadnum = UIUtils.getString(R.string.detail_downloadnum, data.downloadNum);
+		String downloadNum = UIUtils.getString(R.string.detail_downloadnum, data.downloadNum);
 		String version = UIUtils.getString(R.string.detail_version, data.version);
 		String date = UIUtils.getString(R.string.detail_date, data.date);
 		String size = UIUtils.getString(R.string.detail_size, StringUtils.formatFileSize(data.size));
 		
-		InfoTvDownloadNum.setText(downloadnum);
+		InfoTvDownloadNum.setText(downloadNum);
 		InfoTvVersion.setText(version);
 		InfoTvTime.setText(date);
 		InfoTvSize.setText(size);

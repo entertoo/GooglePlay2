@@ -1,11 +1,11 @@
 package com.example.googleplay.protocol;
 
-import java.util.List;
-
 import com.example.googleplay.base.BaseProtocol;
 import com.example.googleplay.bean.AppInfoBean;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import java.util.List;
 
 public class GameProtocol extends BaseProtocol<List<AppInfoBean>>
 {
@@ -19,11 +19,10 @@ public class GameProtocol extends BaseProtocol<List<AppInfoBean>>
 	@Override
 	public List<AppInfoBean> parseJson(String jsonString)
 	{
+		List<AppInfoBean> appList;
 		Gson gson = new Gson();
-		
 		/*=============== 泛型解析 ===============*/
-		List<AppInfoBean> appList = gson.fromJson(jsonString, new TypeToken<List<AppInfoBean>>(){}.getType());
-		
+		appList = gson.fromJson(jsonString, new TypeToken<List<AppInfoBean>>(){}.getType());
 		return appList;
 		
 		/*=============== 结点解析 ===============*/

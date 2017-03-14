@@ -1,6 +1,8 @@
 package com.example.googleplay.fragment;
 
-import java.util.List;
+import android.view.View;
+import android.widget.AbsListView;
+import android.widget.ListView;
 
 import com.example.googleplay.adapter.AppItemAdapter;
 import com.example.googleplay.base.BaseFragment;
@@ -11,9 +13,7 @@ import com.example.googleplay.holder.AppItemHolder;
 import com.example.googleplay.manager.DownloadManager;
 import com.example.googleplay.protocol.GameProtocol;
 
-import android.view.View;
-import android.widget.AbsListView;
-import android.widget.ListView;
+import java.util.List;
 
 /**
  * 游戏
@@ -24,15 +24,15 @@ import android.widget.ListView;
 public class GameFragment extends BaseFragment
 {
 	private GameProtocol mGameProtocol;
-	private List<AppInfoBean> mLoadData;
+	private List<AppInfoBean> mData;
 	private GameAdapter mGameAdapter;
 
 	@Override
 	public LoadedResult initData() {
 		mGameProtocol = new GameProtocol();
 		try {
-			mLoadData = mGameProtocol.loadData(0);
-			return checkState(mLoadData);
+			mData = mGameProtocol.loadData(0);
+			return checkState(mData);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return LoadedResult.ERROR;
@@ -42,24 +42,22 @@ public class GameFragment extends BaseFragment
 	@Override
 	public View initSuccessView() {
 		ListView listView = ListViewFactory.createListView();
-
-		mGameAdapter = new GameAdapter(listView, mLoadData);
+		mGameAdapter = new GameAdapter(listView, mData);
 		listView.setAdapter(mGameAdapter);
-
 		return listView;
 	}
 
-	class GameAdapter extends AppItemAdapter
+	private class GameAdapter extends AppItemAdapter
 	{
+		List<AppInfoBean> gameLoadMore;
 
-		public GameAdapter(AbsListView absListViewList, List<AppInfoBean> dataSource) {
+		GameAdapter(AbsListView absListViewList, List<AppInfoBean> dataSource) {
 			super(absListViewList, dataSource);
 		}
 
 		@Override
 		public List<AppInfoBean> onLoadMore() throws Exception {
-			List<AppInfoBean> gameLoadMore = mGameProtocol.loadData(mLoadData.size());
-
+			gameLoadMore = mGameProtocol.loadData(mData.size());
 			return gameLoadMore;
 		}
 	}
@@ -67,7 +65,7 @@ public class GameFragment extends BaseFragment
 	@Override
 	public void onPause() {
 		// 移除监听
-		if (mGameAdapter != null) {
+		if (mGameAdapter != null && mGameAdapter.getAppItemHolders().size() != 0) {
 			for (AppItemHolder appItemHolder : mGameAdapter.getAppItemHolders()) {
 				DownloadManager.getInstance().deleteObserver(appItemHolder);
 			}
@@ -78,7 +76,7 @@ public class GameFragment extends BaseFragment
 	@Override
 	public void onResume() {
 		// 添加监听
-		if (mGameAdapter != null) {
+		if (mGameAdapter != null && mGameAdapter.getAppItemHolders().size() != 0) {
 			for (AppItemHolder appItemHolder : mGameAdapter.getAppItemHolders()) {
 				DownloadManager.getInstance().addObserver(appItemHolder);
 			}

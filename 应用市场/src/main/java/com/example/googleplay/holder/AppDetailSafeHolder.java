@@ -1,5 +1,13 @@
 package com.example.googleplay.holder;
 
+import android.view.Gravity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import com.example.googleplay.R;
 import com.example.googleplay.base.BaseHolder;
 import com.example.googleplay.bean.AppInfoBean;
@@ -13,17 +21,9 @@ import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.ValueAnimator;
 import com.nineoldandroids.animation.ValueAnimator.AnimatorUpdateListener;
 
-import android.view.Gravity;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
 public class AppDetailSafeHolder extends BaseHolder<AppInfoBean> implements OnClickListener
 {
-	Boolean isOpen = true;
+	private Boolean isOpen = true;
 
 	@ViewInject(R.id.app_detail_safe_pic_container)
 	LinearLayout mPicContainer;
@@ -39,9 +39,7 @@ public class AppDetailSafeHolder extends BaseHolder<AppInfoBean> implements OnCl
 	{
 		View view = View.inflate(UIUtils.getContext(), R.layout.app_detail_safe, null);
 		ViewUtils.inject(this, view);
-
 		view.setOnClickListener(this);
-
 		return view;
 	}
 
@@ -104,9 +102,10 @@ public class AppDetailSafeHolder extends BaseHolder<AppInfoBean> implements OnCl
 
 	private void toggle(Boolean isAnimation)
 	{
+		int measuredHeight;
 		if (isOpen)// 如果是展开就开始折叠
 		{
-			/**
+			/*
 			 * 等同 mDesContainer.measure(0, 0); 
 			 * int widthMeasureSpec =MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED); 
 			 * int heightMeasureSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED); 
@@ -114,7 +113,7 @@ public class AppDetailSafeHolder extends BaseHolder<AppInfoBean> implements OnCl
 			 */
 			mDesContainer.measure(0, 0);
 			// 获取当前高度
-			int measuredHeight = mDesContainer.getMeasuredHeight();
+			measuredHeight = mDesContainer.getMeasuredHeight();
 			// 动画开始的高度
 			int start = measuredHeight;
 			// 动画结束的高度
@@ -140,7 +139,7 @@ public class AppDetailSafeHolder extends BaseHolder<AppInfoBean> implements OnCl
 		{
 			mDesContainer.measure(0, 0);
 			// 获取当前高度
-			int measuredHeight = mDesContainer.getMeasuredHeight();
+			measuredHeight = mDesContainer.getMeasuredHeight();
 			int end = measuredHeight;
 			int start = 0;
 			doAnimation(start, end);
@@ -155,7 +154,7 @@ public class AppDetailSafeHolder extends BaseHolder<AppInfoBean> implements OnCl
 	/**
 	 * 制造一个渐变动画，根据渐变动画的动态高度变化来设置容器的高度变化
 	 */
-	public void doAnimation(int start, int end)
+	private void doAnimation(int start, int end)
 	{
 		// 渐变动画，高度从start-end
 		ValueAnimator animator = ValueAnimator.ofInt(start, end);

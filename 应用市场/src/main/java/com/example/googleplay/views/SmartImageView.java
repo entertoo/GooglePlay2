@@ -25,12 +25,10 @@ public class SmartImageView extends ImageView
 
 	public SmartImageView(Context context) {
 		super(context, null);
-		// TODO Auto-generated constructor stub
 	}
 
 	public SmartImageView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override

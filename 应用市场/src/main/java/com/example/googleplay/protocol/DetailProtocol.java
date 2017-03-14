@@ -1,11 +1,11 @@
 package com.example.googleplay.protocol;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.example.googleplay.base.BaseProtocol;
 import com.example.googleplay.bean.AppInfoBean;
 import com.google.gson.Gson;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class DetailProtocol extends BaseProtocol<AppInfoBean>
 {
@@ -29,9 +29,8 @@ public class DetailProtocol extends BaseProtocol<AppInfoBean>
 	@Override
 	public Map<String, String> getExtraParams()
 	{
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, String> map = new HashMap<>();
 		map.put("packageName", packageName);
-		
 		return map;
 	}
 
@@ -39,7 +38,6 @@ public class DetailProtocol extends BaseProtocol<AppInfoBean>
 	public AppInfoBean parseJson(String jsonString)
 	{
 		Gson gson = new Gson();
-		
 		return gson.fromJson(jsonString, AppInfoBean.class);
 	}
 

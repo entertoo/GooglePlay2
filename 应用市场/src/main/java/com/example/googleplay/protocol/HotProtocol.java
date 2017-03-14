@@ -1,10 +1,10 @@
 package com.example.googleplay.protocol;
 
-import java.util.List;
-
 import com.example.googleplay.base.BaseProtocol;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import java.util.List;
 
 public class HotProtocol extends BaseProtocol<List<String>>
 {
@@ -18,8 +18,9 @@ public class HotProtocol extends BaseProtocol<List<String>>
 	@Override
 	public List<String> parseJson(String jsonString)
 	{
+		List<String> hotList;
 		Gson gson = new Gson();
-		List<String> hotList = gson.fromJson(jsonString, new TypeToken<List<String>>(){}.getType());
+		hotList = gson.fromJson(jsonString, new TypeToken<List<String>>(){}.getType());
 		return hotList;
 	}
 

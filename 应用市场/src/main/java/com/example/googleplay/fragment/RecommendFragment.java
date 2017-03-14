@@ -1,7 +1,10 @@
 package com.example.googleplay.fragment;
 
-import java.util.List;
-import java.util.Random;
+import android.content.Intent;
+import android.graphics.Color;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.TextView;
 
 import com.example.googleplay.activity.DetailActivity;
 import com.example.googleplay.base.BaseFragment;
@@ -12,11 +15,8 @@ import com.example.googleplay.views.flyoutin.ShakeListener;
 import com.example.googleplay.views.flyoutin.ShakeListener.OnShakeListener;
 import com.example.googleplay.views.flyoutin.StellarMap;
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.TextView;
+import java.util.List;
+import java.util.Random;
 
 /**
  * 推荐
@@ -26,16 +26,15 @@ import android.widget.TextView;
 public class RecommendFragment extends BaseFragment
 {
 
-	private List<String> mLoadData;
-	private RecommendProtocol mRecommendProtocol;
+	private List<String> mData;
 	private ShakeListener mShakeListener;
 
 	@Override
 	public LoadedResult initData() {
-		mRecommendProtocol = new RecommendProtocol();
+		RecommendProtocol mRecommendProtocol = new RecommendProtocol();
 		try {
-			mLoadData = mRecommendProtocol.loadData(0);
-			return checkState(mLoadData);
+			mData = mRecommendProtocol.loadData(0);
+			return checkState(mData);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return LoadedResult.ERROR;
@@ -45,8 +44,7 @@ public class RecommendFragment extends BaseFragment
 	@Override
 	public View initSuccessView() {
 		final StellarMap stellarMap = new StellarMap(UIUtils.getContext());
-
-		final RecommentAdapter adapter = new RecommentAdapter();
+		final RecommendAdapter adapter = new RecommendAdapter();
 		stellarMap.setAdapter(adapter);
 		// 设置内边距
 		stellarMap.setInnerPadding(10, 10, 10, 10);
@@ -96,17 +94,17 @@ public class RecommendFragment extends BaseFragment
 	}
 
 	// 适配器继承Stellar中的Adapter接口
-	class RecommentAdapter implements StellarMap.Adapter
+	private class RecommendAdapter implements StellarMap.Adapter
 	{
 
 		// 每页展示的个数
-		private static final int PAGERSIZE = 15;
+		private static final int PAGER_SIZE = 15;
 
 		@Override
 		public int getGroupCount()// 返回组数
 		{
-			int groupCount = mLoadData.size() / PAGERSIZE;
-			if (mLoadData.size() % PAGERSIZE > 0)// 有余数
+			int groupCount = mData.size() / PAGER_SIZE;
+			if (mData.size() % PAGER_SIZE > 0)// 有余数
 			{
 				groupCount++;
 			}
@@ -119,11 +117,11 @@ public class RecommendFragment extends BaseFragment
 			// 如果是最后一组
 			if (group == getGroupCount() - 1) {
 				// 如果有余数，就返回余数
-				if (mLoadData.size() % PAGERSIZE > 0) {
-					return mLoadData.size() % PAGERSIZE;
+				if (mData.size() % PAGER_SIZE > 0) {
+					return mData.size() % PAGER_SIZE;
 				}
 			}
-			return PAGERSIZE;
+			return PAGER_SIZE;
 		}
 
 		@Override
@@ -133,9 +131,9 @@ public class RecommendFragment extends BaseFragment
 
 			// group代表第几组
 			// position代表几组的第几个位置
-			final int index = group * PAGERSIZE + position;
+			final int index = group * PAGER_SIZE + position;
 
-			tv.setText(mLoadData.get(index));
+			tv.setText(mData.get(index));
 
 			Random random = new Random();
 
@@ -154,7 +152,7 @@ public class RecommendFragment extends BaseFragment
 
 				@Override
 				public void onClick(View v) {
-					String appName = mLoadData.get(index);
+					String appName = mData.get(index);
 					goToDetailActivity(appName);
 				}
 			});

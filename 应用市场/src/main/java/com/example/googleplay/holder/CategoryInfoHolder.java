@@ -1,5 +1,13 @@
 package com.example.googleplay.holder;
 
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.googleplay.R;
 import com.example.googleplay.base.BaseHolder;
 import com.example.googleplay.bean.CategoryInfoBean;
@@ -9,14 +17,6 @@ import com.example.googleplay.utils.StringUtils;
 import com.example.googleplay.utils.UIUtils;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
-
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class CategoryInfoHolder extends BaseHolder<CategoryInfoBean>
 {
@@ -57,7 +57,7 @@ public class CategoryInfoHolder extends BaseHolder<CategoryInfoBean>
 		setData(data.name3, data.url3, mTvName3, mIvIcon3);
 	}
 
-	public void setData(final String name, String url, TextView mTvName, ImageView mIvIcon)
+	private void setData(final String name, String url, TextView mTvName, ImageView mIvIcon)
 	{
 		if(!StringUtils.isEmpty(name) && !StringUtils.isEmpty(url))
 		{

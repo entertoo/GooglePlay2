@@ -1,5 +1,13 @@
 package com.example.googleplay.holder;
 
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewParent;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
+import android.widget.ImageView;
+import android.widget.ScrollView;
+import android.widget.TextView;
+
 import com.example.googleplay.R;
 import com.example.googleplay.base.BaseHolder;
 import com.example.googleplay.bean.AppInfoBean;
@@ -10,17 +18,8 @@ import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.Animator.AnimatorListener;
 import com.nineoldandroids.animation.ObjectAnimator;
 
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewParent;
-import android.view.ViewTreeObserver.OnGlobalLayoutListener;
-import android.widget.ImageView;
-import android.widget.ScrollView;
-import android.widget.TextView;
-
 public class AppDetailDesHolder extends BaseHolder<AppInfoBean>
 {
-	private AppInfoBean mData;
 	private boolean isOpen = true;
 	private int mMeasuredHeight;
 
@@ -37,7 +36,6 @@ public class AppDetailDesHolder extends BaseHolder<AppInfoBean>
 	public View initHolderView() {
 		View view = View.inflate(UIUtils.getContext(), R.layout.app_detail_des, null);
 		ViewUtils.inject(this, view);
-
 		view.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -50,23 +48,19 @@ public class AppDetailDesHolder extends BaseHolder<AppInfoBean>
 
 	@Override
 	public void refreshHolderView(AppInfoBean data) {
-		mData = data;
-
 		mTvDes.setText(data.des);
 		mTvAuthor.setText(data.author);
-
 		// 监听mTvDes开始的高度
 		mTvDes.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
 
-			@SuppressWarnings("deprecation")
 			@Override
 			public void onGlobalLayout() {
 				// 获取开始时view的高度
 				mMeasuredHeight = mTvDes.getMeasuredHeight();
 				// 默认打开的时候不展开
 				toggle(false);
-				// 如果不移除,一会高度变成7行的时候.mTvDesMeasuredHeight就会变
-				mTvDes.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+				// 如果不移除,一会高度变成7行的时候mTvDes.MeasuredHeight就会变
+				mTvDes.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 			}
 		});
 
@@ -88,8 +82,8 @@ public class AppDetailDesHolder extends BaseHolder<AppInfoBean>
 				mTvDes.setHeight(end);
 			}
 		} else {
-			int end = mMeasuredHeight;
 			int start = shortHeight();
+			int end = mMeasuredHeight;
 
 			doAnimation(start, end);
 
@@ -101,7 +95,7 @@ public class AppDetailDesHolder extends BaseHolder<AppInfoBean>
 		isOpen = !isOpen;
 	}
 
-	public void doAnimation(int start, int end) {
+	private void doAnimation(int start, int end) {
 		// 渐变动画
 		ObjectAnimator animator = ObjectAnimator.ofInt(mTvDes, "height", start, end);
 		animator.setDuration(100);
@@ -153,17 +147,13 @@ public class AppDetailDesHolder extends BaseHolder<AppInfoBean>
 		tmpTextView.setLines(7);
 		tmpTextView.setText(mData.des);
 
-		// int widthMeasureSpec = MeasureSpec.makeMeasureSpec(0,
-		// MeasureSpec.UNSPECIFIED);
-		// int heightMeasureSpec = MeasureSpec.makeMeasureSpec(0,
-		// MeasureSpec.UNSPECIFIED);
+		// int widthMeasureSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
+		// int heightMeasureSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
 		// tmpTextView.measure(widthMeasureSpec, heightMeasureSpec);
 
 		// 测量,就是让系统底层去测量这个view的宽高.
 		tmpTextView.measure(0, 0);
-		int measuredHeight = tmpTextView.getMeasuredHeight();
-
-		return measuredHeight;
+		return tmpTextView.getMeasuredHeight();
 	}
 
 }

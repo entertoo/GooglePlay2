@@ -1,6 +1,8 @@
 package com.example.googleplay.fragment;
 
-import java.util.List;
+import android.view.View;
+import android.widget.AbsListView;
+import android.widget.ListView;
 
 import com.example.googleplay.adapter.AppItemAdapter;
 import com.example.googleplay.base.BaseFragment;
@@ -11,9 +13,7 @@ import com.example.googleplay.holder.AppItemHolder;
 import com.example.googleplay.manager.DownloadManager;
 import com.example.googleplay.protocol.AppProtocol;
 
-import android.view.View;
-import android.widget.AbsListView;
-import android.widget.ListView;
+import java.util.List;
 
 /**
  * 应用
@@ -25,7 +25,7 @@ public class AppFragment extends BaseFragment
 {
 
 	private AppProtocol mAppProtocol;
-	private List<AppInfoBean> mLoadData;
+	private List<AppInfoBean> mData;
 	private AppAdapter mAppAdapter;
 
 	@Override
@@ -33,9 +33,8 @@ public class AppFragment extends BaseFragment
 		mAppProtocol = new AppProtocol();
 		try {
 			// 获取list数据
-			mLoadData = mAppProtocol.loadData(0);
-
-			return checkState(mLoadData);
+			mData = mAppProtocol.loadData(0);
+			return checkState(mData);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return LoadedResult.ERROR;
@@ -47,23 +46,21 @@ public class AppFragment extends BaseFragment
 	public View initSuccessView() {
 		// 创建listView
 		ListView listView = ListViewFactory.createListView();
-
-		mAppAdapter = new AppAdapter(listView, mLoadData);
+		mAppAdapter = new AppAdapter(listView, mData);
 		listView.setAdapter(mAppAdapter);
-
 		return listView;
 	}
 
-	class AppAdapter extends AppItemAdapter
+	private class AppAdapter extends AppItemAdapter
 	{
+		List<AppInfoBean> appLoadMore;
 
-		public AppAdapter(AbsListView absListViewList, List<AppInfoBean> dataSource) {
+		AppAdapter(AbsListView absListViewList, List<AppInfoBean> dataSource) {
 			super(absListViewList, dataSource);
 		}
 
 		public List<AppInfoBean> onLoadMore() throws Exception {
-			List<AppInfoBean> appLoadMore = mAppProtocol.loadData(mLoadData.size());
-
+			appLoadMore = mAppProtocol.loadData(mData.size());
 			return appLoadMore;
 		}
 
@@ -72,7 +69,7 @@ public class AppFragment extends BaseFragment
 	@Override
 	public void onPause() {
 		// 移除监听
-		if (mAppAdapter != null) {
+		if (mAppAdapter != null && mAppAdapter.getAppItemHolders().size() != 0) {
 			for (AppItemHolder appItemHolder : mAppAdapter.getAppItemHolders()) {
 				DownloadManager.getInstance().deleteObserver(appItemHolder);
 			}
@@ -83,7 +80,7 @@ public class AppFragment extends BaseFragment
 	@Override
 	public void onResume() {
 		// 添加监听
-		if (mAppAdapter != null) {
+		if (mAppAdapter != null && mAppAdapter.getAppItemHolders().size() != 0) {
 			for (AppItemHolder appItemHolder : mAppAdapter.getAppItemHolders()) {
 				DownloadManager.getInstance().addObserver(appItemHolder);
 			}

@@ -1,6 +1,8 @@
 package com.example.googleplay.fragment;
 
-import java.util.List;
+import android.view.View;
+import android.widget.AbsListView;
+import android.widget.ListView;
 
 import com.example.googleplay.base.BaseFragment;
 import com.example.googleplay.base.BaseHolder;
@@ -11,9 +13,7 @@ import com.example.googleplay.factory.ListViewFactory;
 import com.example.googleplay.holder.SubjectHolder;
 import com.example.googleplay.protocol.SubjectProtocol;
 
-import android.view.View;
-import android.widget.AbsListView;
-import android.widget.ListView;
+import java.util.List;
 
 /**
  * 专题
@@ -23,7 +23,7 @@ import android.widget.ListView;
 public class SubjectFragment extends BaseFragment
 {
 	// subject数据
-	private List<SubjectInfoBean> mLoadData;
+	private List<SubjectInfoBean> mData;
 	// subject数据协议
 	private SubjectProtocol mSubjectProtocol;
 
@@ -32,9 +32,9 @@ public class SubjectFragment extends BaseFragment
 		mSubjectProtocol = new SubjectProtocol();
 		try {
 			// 加载subject数据
-			mLoadData = mSubjectProtocol.loadData(0);
+			mData = mSubjectProtocol.loadData(0);
 			// 检查数据
-			return checkState(mLoadData);
+			return checkState(mData);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -47,30 +47,26 @@ public class SubjectFragment extends BaseFragment
 		// 创建subject里面的listView列表
 		ListView listView = ListViewFactory.createListView();
 		// 设置适配器，传入数据
-		listView.setAdapter(new SubjectAdapter(listView, mLoadData));
-
+		listView.setAdapter(new SubjectAdapter(listView, mData));
 		return listView;
 	}
 
-	// subject适配器
-	class SubjectAdapter extends SuperBaseAdapter<SubjectInfoBean>
+	private class SubjectAdapter extends SuperBaseAdapter<SubjectInfoBean>
 	{
+		List<SubjectInfoBean> subjectLoadMore;
 
-		public SubjectAdapter(AbsListView absListViewList, List<SubjectInfoBean> dataSource) {
+		SubjectAdapter(AbsListView absListViewList, List<SubjectInfoBean> dataSource) {
 			super(absListViewList, dataSource);
 		}
 
-		// 获取holder
 		@Override
 		public BaseHolder<SubjectInfoBean> getSpecialHolder(int position) {
 			return new SubjectHolder();
 		}
 
-		// 覆写父类方法，加载更多数据
 		@Override
 		public List<SubjectInfoBean> onLoadMore() throws Exception {
-			List<SubjectInfoBean> subjectLoadMore = mSubjectProtocol.loadData(mLoadData.size());
-
+			subjectLoadMore = mSubjectProtocol.loadData(mData.size());
 			return subjectLoadMore;
 		}
 	}

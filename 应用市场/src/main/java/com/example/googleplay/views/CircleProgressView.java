@@ -83,7 +83,6 @@ public class CircleProgressView extends LinearLayout
 			// 圆弧起始角度
 			float startAngle = -90;
 			// 圆弧扫过的角度，顺时针方向，单位为度,从右中间开始为零度。
-			// (int) (downloadInfo.curProgress * 100.f / downloadInfo.max + .5f)
 			float sweepAngle = (mProgress * 360.f / mMax + .5f);
 			// 是否用半径
 			boolean useCenter = false;

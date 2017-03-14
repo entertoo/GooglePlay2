@@ -13,8 +13,8 @@ import com.lidroid.xutils.http.ResponseStream;
 import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -47,11 +47,7 @@ public class DownloadManager
 	/** 获取单例 */
 	public static DownloadManager getInstance() {
 		if (instance == null) {
-			synchronized (DownloadManager.class) {
-				if (instance == null) {
-					instance = new DownloadManager();
-				}
-			}
+			instance = new DownloadManager();
 		}
 		return instance;
 	}
@@ -60,17 +56,14 @@ public class DownloadManager
 	public void doDownload(DownloadInfoBean downloadInfoBean) {
 		// 保存数据
 		downloadInfoBeans.put(downloadInfoBean.packageName, downloadInfoBean);
-
 		// 下载状态：等待下载
 		downloadInfoBean.state = STATE_WAITING_DOWNLOAD;
 		// 通知观察者
 		notifyObservers(downloadInfoBean);
-
 		// 新建任务
 		DownloadTask downloadTask = new DownloadTask(downloadInfoBean);
 		// 保存任务
 		downloadInfoBean.task = downloadTask;
-
 		// 开启线程池下载
 		ThreadPoolFactory.getDownLoadPool().execute(downloadTask);
 	}
@@ -109,16 +102,16 @@ public class DownloadManager
 					InputStream is = responseStream.getBaseStream();
 					// 追加写入文件
 					File saveFile = new File(downloadInfoBean.savePathAbsolute);
-					RandomAccessFile accessFile = new RandomAccessFile(saveFile, "rw");
-					// FileOutputStream fos = new FileOutputStream(saveFile, true);
-					accessFile.seek(downloadInfoBean.curProgress);
-					byte[] buffer = new byte[1024];
+					//RandomAccessFile accessFile = new RandomAccessFile(saveFile, "rw");
+					FileOutputStream fos = new FileOutputStream(saveFile, true);
+					//accessFile.seek(downloadInfoBean.curProgress);
+					byte[] buffer = new byte[1024*4];
 					int length;
 					while (-1 != (length = is.read(buffer))) {
 						if (downloadInfoBean.state == STATE_PAUSED_DOWNLOAD) {
 							break;
 						}
-						accessFile.write(buffer, 0, length);
+						fos.write(buffer, 0, length);
 						// 进度条值
 						downloadInfoBean.curProgress += length;
 						// 下载状态：下载中
@@ -130,7 +123,6 @@ public class DownloadManager
 							downloadInfoBean.state = STATE_DOWNLOADED;
 							// 通知观察者
 							notifyObservers(downloadInfoBean);
-
 							break;
 						}
 					}
@@ -141,7 +133,7 @@ public class DownloadManager
 					// // 通知观察者
 					// notifyObservers(downloadInfoBean);
 					// }
-					accessFile.close();
+					fos.close();
 
 				} else {
 					// 下载状态：下载失败

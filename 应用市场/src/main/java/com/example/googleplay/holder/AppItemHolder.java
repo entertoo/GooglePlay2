@@ -1,7 +1,6 @@
 package com.example.googleplay.holder;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AbsListView;
@@ -48,8 +47,8 @@ public class AppItemHolder extends BaseHolder<AppInfoBean> implements DownloadSt
 	@ViewInject(R.id.item_appinfo_circleprogress)
 	CircleProgressView mCircleProgressView;
 
-	private DownloadInfoBean downloadInfo;
 	private AbsListView absListView;
+	private DownloadInfoBean downloadInfo;
 
 	public AppItemHolder(AbsListView absListView) {
 		super();
@@ -158,6 +157,7 @@ public class AppItemHolder extends BaseHolder<AppInfoBean> implements DownloadSt
 					mCircleProgressView.setNote("下载");
 					break;
 				case DownloadManager.STATE_DOWNLOADING:
+					mCircleProgressView.setProgressEnable(true);
 					mCircleProgressView.setIcon(R.drawable.ic_pause);
 					// 设置下载环形进度条
 					mCircleProgressView.setMax(downloadInfo.max);

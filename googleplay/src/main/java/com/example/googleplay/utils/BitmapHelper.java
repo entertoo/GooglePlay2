@@ -4,7 +4,6 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.lidroid.xutils.BitmapUtils;
 
 /**
  * bitmapUtils.display(container, uri)
@@ -13,7 +12,7 @@ import com.lidroid.xutils.BitmapUtils;
  */
 public class BitmapHelper {
 
-    public static BitmapUtils bitmapUtils;
+    //public static BitmapUtils bitmapUtils;
 
     /*static {
         bitmapUtils = new BitmapUtils(UIUtils.getContext());

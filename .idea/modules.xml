@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/GooglePlay.iml" filepath="$PROJECT_DIR$/GooglePlay.iml" />
       <module fileurl="file://$PROJECT_DIR$/googleplay/googleplay.iml" filepath="$PROJECT_DIR$/googleplay/googleplay.iml" />
       <module fileurl="file://$PROJECT_DIR$/pagerSlidingTabStrip/pagerSlidingTabStrip.iml" filepath="$PROJECT_DIR$/pagerSlidingTabStrip/pagerSlidingTabStrip.iml" />
-      <module fileurl="file://$PROJECT_DIR$/xutils_lib/xutils_lib.iml" filepath="$PROJECT_DIR$/xutils_lib/xutils_lib.iml" />
     </modules>
   </component>
 </project>

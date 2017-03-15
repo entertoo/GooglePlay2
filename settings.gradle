@@ -1,3 +1,2 @@
 include ':pagerSlidingTabStrip'
-include ':xutils_lib'
 include ':googleplay'

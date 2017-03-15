@@ -8,8 +8,6 @@ import com.example.googleplay.factory.OkHttpUtil;
 import com.example.googleplay.utils.FileUtils;
 import com.example.googleplay.utils.IOUtils;
 import com.google.gson.Gson;
-import com.lidroid.xutils.HttpUtils;
-import com.lidroid.xutils.exception.HttpException;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -103,10 +101,10 @@ public abstract class BaseProtocol<T> {
     /**
      * 获取网络数据
      */
-    private String getDataFromNet(int index) throws HttpException, IOException {
+    private String getDataFromNet(int index) throws IOException {
         // 发送网络请求
-        HttpUtils httpUtils = new HttpUtils();
         // http://localhost:8080/GooglePlayServer/detail?packageName=com.itheima.www
+        // HttpUtils httpUtils = new HttpUtils();
         // http://localhost:8080/GooglePlayServer/home?index=0
         String url = URLS.BASE_URL + getInterfaceKey();
 

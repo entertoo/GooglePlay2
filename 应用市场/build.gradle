@@ -21,7 +21,6 @@ android {
 dependencies {
     compile 'com.android.support:appcompat-v7:25.2.0'
     //compile 'com.android.support:support-v4:25.2.0'
-    compile project(':xutils_lib')
     compile project(':pagerSlidingTabStrip')
     compile 'com.google.code.gson:gson:2.7'
     compile files('libs/nineoldandroids-2.2.0.jar')

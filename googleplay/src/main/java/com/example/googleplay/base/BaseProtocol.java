@@ -104,27 +104,8 @@ public abstract class BaseProtocol<T> {
     private String getDataFromNet(int index) throws IOException {
         // 发送网络请求
         // http://localhost:8080/GooglePlayServer/detail?packageName=com.itheima.www
-        // HttpUtils httpUtils = new HttpUtils();
         // http://localhost:8080/GooglePlayServer/home?index=0
         String url = URLS.BASE_URL + getInterfaceKey();
-
-        // 获取拓展的参数，如果拓展参数为空，说明没有重写getExtraParams()方法，默认返回为空
-        /*
-         RequestParams params = new RequestParams();
-        if (getExtraParams() == null) {
-            params.addQueryStringParameter("index", index + "");
-        } else {
-            Map<String, String> extraParams = getExtraParams();
-            for (Map.Entry<String, String> entry : extraParams.entrySet()) {
-                String key = entry.getKey();// "packageName"
-                String packageName = entry.getValue(); // packageName
-                params.addQueryStringParameter(key, packageName);
-            }
-        }
-        ResponseStream responseStream = httpUtils.sendSync(HttpMethod.GET, url, params);
-        // 读取网络数据
-        String jsonString = responseStream.readString();*/
-
         // okHttp
         FormBody.Builder builder = new FormBody.Builder();
 

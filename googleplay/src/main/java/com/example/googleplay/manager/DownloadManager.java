@@ -95,12 +95,6 @@ public class DownloadManager {
                 // 通知观察者
                 notifyObservers(downloadInfoBean);
                 String url = URLS.DOWNLOAD_URL;
-                //HttpUtils httpUtils = new HttpUtils();
-                /*RequestParams params = new RequestParams();
-                params.addQueryStringParameter("name", downloadInfoBean.downloadUrl);
-                params.addQueryStringParameter("range", range + "");
-                ResponseStream responseStream = httpUtils.sendSync(HttpMethod.GET, url, params);*/
-
                 // okHttp
                 FormBody.Builder builder = new FormBody.Builder();
                 builder.add("name", downloadInfoBean.downloadUrl);

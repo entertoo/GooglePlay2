@@ -8,9 +8,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/googleplay" />
             <option value="$PROJECT_DIR$/pagerSlidingTabStrip" />
             <option value="$PROJECT_DIR$/xutils_lib" />
-            <option value="$PROJECT_DIR$/应用市场" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

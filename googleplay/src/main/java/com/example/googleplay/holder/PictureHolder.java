@@ -178,7 +178,7 @@ public class PictureHolder extends BaseHolder<List<String>> {
 		// 开始轮播
 		public void start() {
 			// 延迟1.5秒后进入this.run()方法，进行递归
-			UIUtils.postTaskDelay(this, 1500);
+			UIUtils.postTaskDelay(this, 2500);
 		}
 
 		// 结束轮播

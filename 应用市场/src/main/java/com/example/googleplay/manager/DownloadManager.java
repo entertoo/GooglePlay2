@@ -94,8 +94,8 @@ public class DownloadManager {
                 downloadInfoBean.state = STATE_DOWNLOADING;
                 // 通知观察者
                 notifyObservers(downloadInfoBean);
-                //HttpUtils httpUtils = new HttpUtils();
                 String url = URLS.DOWNLOAD_URL;
+                //HttpUtils httpUtils = new HttpUtils();
                 /*RequestParams params = new RequestParams();
                 params.addQueryStringParameter("name", downloadInfoBean.downloadUrl);
                 params.addQueryStringParameter("range", range + "");

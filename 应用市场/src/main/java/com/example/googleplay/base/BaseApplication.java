@@ -13,10 +13,8 @@ import android.os.Looper;
  */
 public class BaseApplication extends Application {
 
-    public Application INSTANCE;
+    private static BaseApplication Instance;
 
-    // 上下文
-    private static Context mContext;
     // 主线程
     private static Thread mMainThread;
     // 主线程ID
@@ -31,7 +29,7 @@ public class BaseApplication extends Application {
     }
 
     public static Context getContext() {
-        return mContext;
+        return Instance;
     }
 
     public static Thread getMainThread() {
@@ -48,7 +46,8 @@ public class BaseApplication extends Application {
 
     @Override
     public void onCreate() {
-        INSTANCE = this;
+        Instance = this;
+
         /*
 		 * 上下文
 		 * getApplicationContext()取的是这个应用程序的Context，
@@ -56,7 +55,6 @@ public class BaseApplication extends Application {
 		 * Activity.this 返回当前activity的上下文，
 		 * 生命周期只是它所在的Activity，activity 摧毁他就摧毁
 		 */
-        mContext = getApplicationContext();
 
         // 主线程
         mMainThread = Thread.currentThread();

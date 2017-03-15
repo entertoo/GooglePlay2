@@ -38,7 +38,7 @@ public class Constants {
     public static final class URLS {
         // public static final String BASE_URL = "http://10.0.2.2:8080/GooglePlayServer/";
         // public static final String BASE_URL = "http://192.168.31.92:8080/GooglePlayServer/";
-        public static final String BASE_URL = "http://10.139.24.152:8080/GooglePlayServer/";
+        public static final String BASE_URL = "http://10.139.24.142:8080/GooglePlayServer/";
         // http://localhost:8080/GooglePlayServer/image?name=
         public static final String IMAGE_BASE_URL = BASE_URL + "image?name=";
         // http://localhost:8080/GooglePlayServer/download?name=app/com.itheima.www/com.itheima.www.apk&range=0

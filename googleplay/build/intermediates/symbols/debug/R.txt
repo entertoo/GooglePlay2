@@ -806,7 +806,7 @@ int id action_mode_close_button 0x7f0d0045
 int id action_search 0x7f0d00ef
 int id action_settings 0x7f0d00f0
 int id action_text 0x7f0d00d7
-int id actions 0x7f0d00e5
+int id actions 0x7f0d00e4
 int id activity_chooser_view_content 0x7f0d0046
 int id add 0x7f0d001e
 int id alertTitle 0x7f0d005a
@@ -890,7 +890,7 @@ int id ic_setting 0x7f0d00c1
 int id ic_theme 0x7f0d00c4
 int id ic_updates 0x7f0d00cd
 int id icon 0x7f0d004b
-int id icon_group 0x7f0d00e6
+int id icon_group 0x7f0d00e5
 int id ifRoom 0x7f0d003c
 int id image 0x7f0d0048
 int id image_over 0x7f0d00ba
@@ -952,7 +952,7 @@ int id progress_circular 0x7f0d0006
 int id progress_horizontal 0x7f0d0007
 int id radio 0x7f0d005f
 int id right 0x7f0d002d
-int id right_icon 0x7f0d00e4
+int id right_icon 0x7f0d00e6
 int id right_side 0x7f0d00df
 int id scans_layout 0x7f0d00c6
 int id screen 0x7f0d0020

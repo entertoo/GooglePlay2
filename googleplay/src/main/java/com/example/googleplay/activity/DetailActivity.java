@@ -26,6 +26,7 @@ import butterknife.ButterKnife;
 public class DetailActivity extends BaseActivity {
 
     private String mPackageName;
+    private String mName;
     private AppInfoBean mDetailData;
     private LoadingPager mLoadingPager;
     private AppDetailBottomHolder mAppDetailBottomHolder;
@@ -36,6 +37,7 @@ public class DetailActivity extends BaseActivity {
         Intent intent = getIntent();
         // Bundle bundle = intent.getExtras();
         mPackageName = intent.getStringExtra("packageName");
+        mName = intent.getStringExtra("name");
     }
 
     @Override
@@ -61,7 +63,7 @@ public class DetailActivity extends BaseActivity {
     @Override
     public void initActionBar() {
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("应用市场");
+        actionBar.setTitle(mName);
         // 显示返回按钮
         actionBar.setDisplayHomeAsUpEnabled(true);
     }

@@ -40,12 +40,12 @@
         "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/drawable-hdpi-v4/design_ic_visibility_off.png"
     },
     {
-        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_cab_background_top_mtrl_alpha.9.png",
-        "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/drawable-hdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
-    },
-    {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_star_half_black_36dp.png",
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/drawable-hdpi-v4/abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_cab_background_top_mtrl_alpha.9.png",
+        "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/drawable-hdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_radio_to_on_mtrl_000.png",

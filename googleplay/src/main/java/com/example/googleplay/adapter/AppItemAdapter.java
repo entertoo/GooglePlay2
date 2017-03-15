@@ -45,14 +45,15 @@ public class AppItemAdapter extends SuperBaseAdapter<AppInfoBean> {
     @Override
     public void onNormalItemClick(AdapterView<?> parent, View view, int position, long id) {
         // 把包名传过去
-        goToDetailActivity(mDataSource.get(position).packageName);
+        goToDetailActivity(mDataSource.get(position).packageName, mDataSource.get(position).name);
     }
 
     // 跳转到APP详情界面
-    private void goToDetailActivity(String packageName) {
+    private void goToDetailActivity(String packageName, String name) {
         Intent intent = new Intent(UIUtils.getContext(), DetailActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("packageName", packageName);
+        intent.putExtra("name", name);
         UIUtils.getContext().startActivity(intent);
     }
 

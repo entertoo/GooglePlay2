@@ -192,10 +192,6 @@
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/abc_action_menu_layout.xml"
     },
     {
-        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
-        "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/notification_action_tombstone.xml"
-    },
-    {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
         "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/layout/design_layout_snackbar.xml"
     },
@@ -218,10 +214,6 @@
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/abc_expanded_menu_layout.xml"
-    },
-    {
-        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/notification_action.xml",
-        "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/notification_action.xml"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/app_detail_safe.xml",
@@ -262,10 +254,6 @@
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/notification_template_part_time.xml"
-    },
-    {
-        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
-        "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/notification_template_icon_group.xml"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",

@@ -39,32 +39,33 @@ public class AppDetailSafeHolder extends BaseHolder<AppInfoBean> implements OnCl
 
     @Override
     public void refreshHolderView(AppInfoBean data) {
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, UIUtils.dip2px(16));
         for (int i = 0; i < data.safe.size(); i++) {
             // 获取数据
             SafeInfoBean safeInfoBean = data.safe.get(i);
-
             // 设置安全图标
             ImageView ivIcon = new ImageView(UIUtils.getContext());
+            ivIcon.setLayoutParams(params);
             String safeUri = URLS.IMAGE_BASE_URL + safeInfoBean.safeUrl;
             BitmapHelper.display(ivIcon, safeUri);
             // 加入容器
             mPicContainer.addView(ivIcon);
 
             // 线性布局，把安全描述包裹起来
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,UIUtils.dip2px(30));
             LinearLayout ll = new LinearLayout(UIUtils.getContext());
-            ll.setLayoutParams(layoutParams);
             ll.setOrientation(LinearLayout.HORIZONTAL);
             ll.setPadding(UIUtils.dip2px(7), UIUtils.dip2px(5), UIUtils.dip2px(7), UIUtils.dip2px(5));
 
             // 安全描述图标
             ImageView ivDes = new ImageView(UIUtils.getContext());
+            ivDes.setLayoutParams(params);
             String safeDesUri = URLS.IMAGE_BASE_URL + safeInfoBean.safeDesUrl;
             BitmapHelper.display(ivDes, safeDesUri);
 
             // 安全描述内容
             TextView tvDes = new TextView(UIUtils.getContext());
             tvDes.setText(safeInfoBean.safeDes);
+            tvDes.setTextSize(12);
             tvDes.setGravity(Gravity.CENTER_HORIZONTAL);
             // 设置不同类型的文字
             if (safeInfoBean.safeDesColor == 0) {

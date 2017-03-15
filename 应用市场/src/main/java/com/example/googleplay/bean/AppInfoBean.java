@@ -37,6 +37,15 @@ public class AppInfoBean {
         public int safeDesColor;    //0
         public String safeDesUrl;    //app/com.itheima.www/safeDesUrl0.jpg
         public String safeUrl;    //app/com.itheima.www/safeIcon0.jpg
-    }
 
+        @Override
+        public String toString() {
+            return "SafeInfoBean{" +
+                    "safeDes='" + safeDes + '\'' +
+                    ", safeDesColor=" + safeDesColor +
+                    ", safeDesUrl='" + safeDesUrl + '\'' +
+                    ", safeUrl='" + safeUrl + '\'' +
+                    '}';
+        }
+    }
 }

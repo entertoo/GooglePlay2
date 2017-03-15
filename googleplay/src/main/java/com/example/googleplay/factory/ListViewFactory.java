@@ -12,11 +12,11 @@ public class ListViewFactory {
     public static ListView createListView() {
         ListView listView = new ListView(UIUtils.getContext());
         //简单设置
-        listView.setNestedScrollingEnabled(true);
-        listView.setCacheColorHint(Color.TRANSPARENT);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             listView.setNestedScrollingEnabled(true);
         }
+        listView.setCacheColorHint(Color.TRANSPARENT);
+        listView.setFastScrollEnabled(true);
         //设置选中透明，去掉蓝色背景
         listView.setSelector(new ColorDrawable(Color.TRANSPARENT));
         return listView;

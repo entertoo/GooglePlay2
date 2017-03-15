@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.googleplay"
-        minSdkVersion 21
+        minSdkVersion 18
         targetSdkVersion 25
     }
 

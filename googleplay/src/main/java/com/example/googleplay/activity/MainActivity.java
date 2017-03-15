@@ -31,10 +31,10 @@ import butterknife.ButterKnife;
 public class MainActivity extends BaseActivity {
 
     @BindView(R.id.main_toolBar) Toolbar toolbar;
-    @BindView(R.id.mian_tabs) PagerSlidingTabStripExtends mTabs;
-    @BindView(R.id.mian_pager) ViewPager mViewPager;
-    @BindView(R.id.main_drawlayout) DrawerLayout mDrawerLayout;
-    @BindView(R.id.main_meun) ScrollView mMenu;
+    @BindView(R.id.main_tabs) PagerSlidingTabStripExtends mTabs;
+    @BindView(R.id.main_pager) ViewPager mViewPager;
+    @BindView(R.id.main_drawer_layout) DrawerLayout mDrawerLayout;
+    @BindView(R.id.main_menu) ScrollView mMenu;
 
     private String[] mMainTitles;
 
@@ -49,8 +49,6 @@ public class MainActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_launcher);
         toolbar.setTitle("应用市场");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        getSupportActionBar().setHomeButtonEnabled(true);
     }
 
 
@@ -94,13 +92,20 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDrawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
+
                 break;
 
             default:

@@ -21,8 +21,9 @@ int color item_divider 0x7f030004
 int color item_download_bg 0x7f030005
 int color menu_bg_press 0x7f030006
 int color tab_indicator_selected 0x7f030007
-int color tab_text_normal 0x7f030008
-int color tab_text_selected 0x7f030009
+int color tab_indicator_selected2 0x7f030008
+int color tab_text_normal 0x7f030009
+int color tab_text_selected 0x7f03000a
 int dimen activity_horizontal_margin 0x7f040000
 int dimen activity_vertical_margin 0x7f040001
 int dimen tab_text_normal_size 0x7f040002

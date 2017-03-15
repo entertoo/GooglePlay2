@@ -14,7 +14,7 @@ import java.lang.Override;
 public class MenuHolder_ViewBinding implements Unbinder {
   private MenuHolder target;
 
-  private View view2131427474;
+  private View view2131558589;
 
   @UiThread
   public MenuHolder_ViewBinding(final MenuHolder target, View source) {
@@ -22,7 +22,7 @@ public class MenuHolder_ViewBinding implements Unbinder {
 
     View view;
     view = Utils.findRequiredView(source, R.id.home_layout, "method 'clickHome'");
-    view2131427474 = view;
+    view2131558589 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -38,7 +38,7 @@ public class MenuHolder_ViewBinding implements Unbinder {
     target = null;
 
 
-    view2131427474.setOnClickListener(null);
-    view2131427474 = null;
+    view2131558589.setOnClickListener(null);
+    view2131558589 = null;
   }
 }

@@ -13,11 +13,11 @@
                 "from": {
                     "file": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/pagerSlidingTabStrip/src/main/res/values/color.xml",
                     "position": {
-                        "startLine": 14,
+                        "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 498,
+                        "startOffset": 557,
                         "endColumn": 56,
-                        "endOffset": 550
+                        "endOffset": 609
                     }
                 }
             },
@@ -32,11 +32,11 @@
                 "from": {
                     "file": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/pagerSlidingTabStrip/src/main/res/values/color.xml",
                     "position": {
-                        "startLine": 15,
+                        "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 556,
+                        "startOffset": 615,
                         "endColumn": 57,
-                        "endOffset": 609
+                        "endOffset": 668
                     }
                 }
             },
@@ -70,11 +70,11 @@
                 "from": {
                     "file": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/pagerSlidingTabStrip/src/main/res/values/color.xml",
                     "position": {
-                        "startLine": 9,
+                        "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 341,
+                        "startOffset": 400,
                         "endColumn": 38,
-                        "endOffset": 375
+                        "endOffset": 434
                     }
                 }
             },
@@ -89,11 +89,11 @@
                 "from": {
                     "file": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/pagerSlidingTabStrip/src/main/res/values/color.xml",
                     "position": {
-                        "startLine": 8,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 291,
+                        "startOffset": 350,
                         "endColumn": 48,
-                        "endOffset": 335
+                        "endOffset": 394
                     }
                 }
             },
@@ -108,11 +108,11 @@
                 "from": {
                     "file": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/pagerSlidingTabStrip/src/main/res/values/color.xml",
                     "position": {
-                        "startLine": 10,
+                        "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 381,
+                        "startOffset": 440,
                         "endColumn": 52,
-                        "endOffset": 429
+                        "endOffset": 488
                     }
                 }
             },
@@ -127,11 +127,11 @@
                 "from": {
                     "file": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/pagerSlidingTabStrip/src/main/res/values/color.xml",
                     "position": {
-                        "startLine": 12,
+                        "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 441,
+                        "startOffset": 500,
                         "endColumn": 49,
-                        "endOffset": 486
+                        "endOffset": 545
                     }
                 }
             },
@@ -159,27 +159,8 @@
                     "startLine": 10,
                     "startColumn": 4,
                     "startOffset": 477,
-                    "endColumn": 49,
-                    "endOffset": 522
-                },
-                "from": {
-                    "file": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/pagerSlidingTabStrip/src/main/res/values/color.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 234,
-                        "endColumn": 49,
-                        "endOffset": 279
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 11,
-                    "startColumn": 4,
-                    "startOffset": 527,
-                    "endColumn": 51,
-                    "endOffset": 574
+                    "endColumn": 57,
+                    "endOffset": 530
                 },
                 "from": {
                     "file": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/pagerSlidingTabStrip/src/main/res/values/color.xml",
@@ -187,18 +168,56 @@
                         "startLine": 5,
                         "startColumn": 4,
                         "startOffset": 181,
-                        "endColumn": 51,
-                        "endOffset": 228
+                        "endColumn": 57,
+                        "endOffset": 234
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 13,
+                    "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 1410,
+                    "startOffset": 535,
+                    "endColumn": 49,
+                    "endOffset": 580
+                },
+                "from": {
+                    "file": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/pagerSlidingTabStrip/src/main/res/values/color.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 293,
+                        "endColumn": 49,
+                        "endOffset": 338
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 585,
+                    "endColumn": 51,
+                    "endOffset": 632
+                },
+                "from": {
+                    "file": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/pagerSlidingTabStrip/src/main/res/values/color.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 240,
+                        "endColumn": 51,
+                        "endOffset": 287
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1468,
                     "endColumn": 57,
-                    "endOffset": 1463
+                    "endOffset": 1521
                 },
                 "from": {
                     "file": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/pagerSlidingTabStrip/src/main/res/values/dimens.xml",
@@ -213,11 +232,11 @@
             },
             {
                 "to": {
-                    "startLine": 14,
+                    "startLine": 15,
                     "startColumn": 4,
-                    "startOffset": 1468,
+                    "startOffset": 1526,
                     "endColumn": 55,
-                    "endOffset": 1519
+                    "endOffset": 1577
                 },
                 "from": {
                     "file": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/pagerSlidingTabStrip/src/main/res/values/dimens.xml",
@@ -232,11 +251,11 @@
             },
             {
                 "to": {
-                    "startLine": 15,
+                    "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 1524,
+                    "startOffset": 1582,
                     "endColumn": 51,
-                    "endOffset": 1571
+                    "endOffset": 1629
                 },
                 "from": {
                     "file": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/pagerSlidingTabStrip/src/main/res/values/dimens.xml",
@@ -251,11 +270,11 @@
             },
             {
                 "to": {
-                    "startLine": 16,
+                    "startLine": 17,
                     "startColumn": 4,
-                    "startOffset": 1576,
+                    "startOffset": 1634,
                     "endColumn": 53,
-                    "endOffset": 1625
+                    "endOffset": 1683
                 },
                 "from": {
                     "file": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/pagerSlidingTabStrip/src/main/res/values/dimens.xml",

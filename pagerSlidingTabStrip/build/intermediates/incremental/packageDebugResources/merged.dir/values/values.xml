@@ -8,11 +8,12 @@
     <color name="item_download_bg">#cccccccc</color>
     <color name="menu_bg_press">#44444444</color>
     <color name="tab_indicator_selected">#6666FF</color>
+    <color name="tab_indicator_selected2">#FFFFFF</color>
     <color name="tab_text_normal">#333333</color>
     <color name="tab_text_selected">#6666FF</color>
     <declare-styleable name="PagerSlidingTabStrip"><attr format="color" name="pstsIndicatorColor"/><attr format="color" name="pstsUnderlineColor"/><attr format="color" name="pstsDividerColor"/><attr format="dimension" name="pstsIndicatorHeight"/><attr format="dimension" name="pstsUnderlineHeight"/><attr format="dimension" name="pstsDividerPadding"/><attr format="dimension" name="pstsTabPaddingLeftRight"/><attr format="dimension" name="pstsScrollOffset"/><attr format="reference" name="pstsTabBackground"/><attr format="boolean" name="pstsShouldExpand"/><attr format="boolean" name="pstsTextAllCaps"/><attr format="dimension" name="pstsTabTextSize"/><attr format="dimension" name="pstsTabSelectedTextSize"/><attr format="color" name="pstsTabTextColor"/><attr format="color" name="pstsTabSelectedTextColor"/></declare-styleable>
     <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">10dp</dimen>
     <dimen name="tab_text_normal_size">14sp</dimen>
-    <dimen name="tab_text_selected_size">17sp</dimen>
+    <dimen name="tab_text_selected_size">15sp</dimen>
 </resources>

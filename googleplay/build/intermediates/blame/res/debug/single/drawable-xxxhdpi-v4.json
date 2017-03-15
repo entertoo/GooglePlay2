@@ -4,6 +4,10 @@
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/drawable-xxxhdpi-v4/abc_ic_star_black_16dp.png"
     },
     {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/design_ic_visibility.png",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/drawable-xxxhdpi-v4/design_ic_visibility.png"
+    },
+    {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png",
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/drawable-xxxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
     },
@@ -58,6 +62,10 @@
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_star_half_black_16dp.png",
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/drawable-xxxhdpi-v4/abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/design_ic_visibility_off.png",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/drawable-xxxhdpi-v4/design_ic_visibility_off.png"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4/abc_ic_menu_share_mtrl_alpha.png",

@@ -3,6 +3,7 @@
     <color name="background_tab_pressed">#ffd7d7d7</color>
     
     <color name="tab_indicator_selected">#6666FF</color>
+    <color name="tab_indicator_selected2">#FFFFFF</color>
     <color name="tab_text_selected">#6666FF</color>
     <color name="tab_text_normal">#333333</color>
     

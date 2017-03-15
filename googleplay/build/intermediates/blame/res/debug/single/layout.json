@@ -1,15 +1,23 @@
 [
     {
-        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
-        "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/abc_action_mode_close_item_material.xml"
-    },
-    {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/abc_alert_dialog_button_bar_material.xml",
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/abc_alert_dialog_button_bar_material.xml"
     },
     {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
+        "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/abc_action_mode_close_item_material.xml"
+    },
+    {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/design_bottom_navigation_item.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/layout/design_bottom_navigation_item.xml"
+    },
+    {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/design_layout_tab_text.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/layout/design_layout_tab_text.xml"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/activity_detail.xml",
@@ -20,20 +28,32 @@
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/abc_search_dropdown_item_icons_2line.xml"
     },
     {
-        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/pager_loading.xml",
-        "source": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/res/layout/pager_loading.xml"
-    },
-    {
-        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
-        "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/abc_activity_chooser_view.xml"
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/layout/design_menu_item_action_area.xml"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/abc_screen_toolbar.xml"
     },
     {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
+        "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/pager_loading.xml",
+        "source": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/res/layout/pager_loading.xml"
+    },
+    {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/layout/design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/design_bottom_sheet_dialog.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/layout/design_bottom_sheet_dialog.xml"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
@@ -72,6 +92,10 @@
         "source": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/res/layout/item_app_info.xml"
     },
     {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/layout/design_navigation_menu_item.xml"
+    },
+    {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/notification_template_lines_media.xml",
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/notification_template_lines_media.xml"
     },
@@ -92,6 +116,10 @@
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/support_simple_spinner_dropdown_item.xml"
     },
     {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/layout/design_navigation_menu.xml"
+    },
+    {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/app_detail_bottom.xml",
         "source": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/res/layout/app_detail_bottom.xml"
     },
@@ -100,8 +128,20 @@
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/abc_action_bar_view_list_nav_layout.xml"
     },
     {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/design_navigation_item_subheader.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/layout/design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/layout/design_navigation_item_separator.xml"
+    },
+    {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/abc_alert_dialog_title_material.xml",
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/layout/design_navigation_item_header.xml"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/pager_empty.xml",
@@ -140,12 +180,28 @@
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/abc_list_menu_item_radio.xml"
     },
     {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/design_layout_tab_icon.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/layout/design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/design_text_input_password_icon.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/layout/design_text_input_password_icon.xml"
+    },
+    {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/abc_action_menu_layout.xml"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/layout/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/layout/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/layout/design_navigation_item.xml"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",

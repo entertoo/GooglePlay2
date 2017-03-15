@@ -154,8 +154,9 @@ containing a value of this type.
         public static int item_download_bg=0x7f030005;
         public static int menu_bg_press=0x7f030006;
         public static int tab_indicator_selected=0x7f030007;
-        public static int tab_text_normal=0x7f030008;
-        public static int tab_text_selected=0x7f030009;
+        public static int tab_indicator_selected2=0x7f030008;
+        public static int tab_text_normal=0x7f030009;
+        public static int tab_text_selected=0x7f03000a;
     }
     public static final class dimen {
         public static int activity_horizontal_margin=0x7f040000;

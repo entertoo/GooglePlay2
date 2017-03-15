@@ -28,10 +28,10 @@ public class MainActivity_ViewBinding implements Unbinder {
     this.target = target;
 
     target.toolbar = Utils.findRequiredViewAsType(source, R.id.main_toolBar, "field 'toolbar'", Toolbar.class);
-    target.mTabs = Utils.findRequiredViewAsType(source, R.id.mian_tabs, "field 'mTabs'", PagerSlidingTabStripExtends.class);
-    target.mViewPager = Utils.findRequiredViewAsType(source, R.id.mian_pager, "field 'mViewPager'", ViewPager.class);
-    target.mDrawerLayout = Utils.findRequiredViewAsType(source, R.id.main_drawlayout, "field 'mDrawerLayout'", DrawerLayout.class);
-    target.mMenu = Utils.findRequiredViewAsType(source, R.id.main_meun, "field 'mMenu'", ScrollView.class);
+    target.mTabs = Utils.findRequiredViewAsType(source, R.id.main_tabs, "field 'mTabs'", PagerSlidingTabStripExtends.class);
+    target.mViewPager = Utils.findRequiredViewAsType(source, R.id.main_pager, "field 'mViewPager'", ViewPager.class);
+    target.mDrawerLayout = Utils.findRequiredViewAsType(source, R.id.main_drawer_layout, "field 'mDrawerLayout'", DrawerLayout.class);
+    target.mMenu = Utils.findRequiredViewAsType(source, R.id.main_menu, "field 'mMenu'", ScrollView.class);
   }
 
   @Override

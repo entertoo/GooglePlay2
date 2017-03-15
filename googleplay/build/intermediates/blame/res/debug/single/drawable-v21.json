@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-v21/avd_show_password.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/drawable-v21/avd_show_password.xml"
+    },
+    {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/drawable-v21/notification_action_background.xml"
     },
@@ -14,5 +18,17 @@
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
         "source": "/Users/haoping/.android/build-cache/04dfe617ff7ef44cf1486463c24340fba6a46951/output/res/drawable-v21/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-v21/design_bottom_navigation_item_background.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/drawable-v21/design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-v21/avd_hide_password.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/drawable-v21/avd_hide_password.xml"
+    },
+    {
+        "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-v21/design_password_eye.xml",
+        "source": "/Users/haoping/.android/build-cache/e9e6cdf9432a448a4112463efd1de4c282f264c8/output/res/drawable-v21/design_password_eye.xml"
     }
 ]

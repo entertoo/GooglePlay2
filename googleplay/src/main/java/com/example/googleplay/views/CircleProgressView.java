@@ -35,6 +35,7 @@ public class CircleProgressView extends LinearLayout {
 
     public void setNote(String note) {
         mNote.setText(note);
+        //invalidate();
     }
 
     public void setMax(long max) {

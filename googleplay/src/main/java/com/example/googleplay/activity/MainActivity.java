@@ -1,17 +1,15 @@
 package com.example.googleplay.activity;
 
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,13 +30,13 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
 
+    @BindView(R.id.main_toolBar) Toolbar toolbar;
     @BindView(R.id.mian_tabs) PagerSlidingTabStripExtends mTabs;
     @BindView(R.id.mian_pager) ViewPager mViewPager;
     @BindView(R.id.main_drawlayout) DrawerLayout mDrawerLayout;
     @BindView(R.id.main_meun) ScrollView mMenu;
 
     private String[] mMainTitles;
-    private ActionBarDrawerToggle mToggle;
 
     @Override
     public void initView() {
@@ -48,54 +46,21 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initActionBar() {
-        ActionBar mActionBar = getSupportActionBar();
-        mActionBar.setLogo(R.drawable.ic_launcher);
-        mActionBar.setTitle("应用市场");
-
-        // 设置显示返回按钮
-        mActionBar.setDisplayHomeAsUpEnabled(true);
-        mActionBar.setHomeButtonEnabled(true);
-        // 初始化开关
-        initActionBarToggle();
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_launcher);
+        toolbar.setTitle("应用市场");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(true);
     }
 
-    private void initActionBarToggle() {
-        /*
-		 * drawerLayout左侧菜单（或者右侧）的展开与隐藏可以被DrawerLayout.DrawerListener的实现监听到，
-		 * 这样你就可以在菜单展开与隐藏反生的时刻做一些希望做的事情，比如更新actionbar菜单等。
-		 * 如果你的activity有actionbar的话，还是建议你用ActionBarDrawerToggle来监听，
-		 * ActionBarDrawerToggle实现了DrawerListener，所以他能做DrawerListener可以做的任何事情，
-		 * 同时他还能将drawerLayout的展开和隐藏与actionbar的app 图标关联起来，
-		 * 当展开与隐藏的时候图标有一定的平移效果，点击图标的时候还能展开或者隐藏菜单。
-		 */
-        // 使用ActionBarDrawerToggle作为监听器
-        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer_am, R.string.open,
-                R.string.close);
-
-        // 设置mDrawerLayout拖动的监听
-        mDrawerLayout.setDrawerListener(mToggle);
-
-        // 同步状态
-        // Synchronize the state of the drawer indicator/affordance with the
-        // linked DrawerLayout.
-        // mToggle.syncState();
-    }
 
     @Override
     public void initData() {
-        // 获取导航栏标题数据
+        // 导航栏标题数据
         mMainTitles = UIUtils.getStringArr(R.array.main_titles);
-
-        // 将viewPager绑定适配器
         MainFragmentStatePagerAdapter adapter = new MainFragmentStatePagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(adapter);
-
-        // Bind the tabs to the ViewPager
         mTabs.setViewPager(mViewPager);
-
-        // 给ViewPager设置动画
-        //mViewPager.setPageTransformer(true, new DepthPageTransformer());
-
         // 左侧菜单
         MenuHolder menuHolder = new MenuHolder(mDrawerLayout);
         mMenu.addView(menuHolder.getHolderView());
@@ -135,14 +100,7 @@ public class MainActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-			/*
-			 * 使用ActionBarDrawerToggle的onOptionsItemSelected方法。
-			 * 该方法activity的onOptionsItemSelected方法中根据传递进来的menu item做了
-			 * 在activity的onOptionsItemSelected方法中判断点击事件是否来自于app图标，
-			 * 然后用DrawerLayout.closeDrawer和DrawerLayout.openDrawer来隐藏与展开
-			 */
-                // mToggle控制打开关闭菜单,home被选中的时候，mToggle也被选中
-                mToggle.onOptionsItemSelected(item);
+                mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
 
             default:
@@ -155,20 +113,6 @@ public class MainActivity extends BaseActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
-        mToggle.syncState();
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        // Pass any configuration change to the drawer toggls
-        mToggle.onConfigurationChanged(newConfig);
     }
 
     /**

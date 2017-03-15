@@ -1599,7 +1599,7 @@
             <enum name="width" value="0"/>
             <enum name="height" value="1"/>
         </attr>
-    </declare-styleable></file><file path="/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/res/values/dimens.xml" qualifiers=""><dimen name="activity_vertical_margin">16dp</dimen><dimen name="activity_horizontal_margin">16dp</dimen></file><file path="/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/res/values/strings.xml" qualifiers=""><string name="app_detail_info_version">版本: %1$s</string><string name="detail_downloadnum">下载量:%1$s</string><string name="detail_date">时间:%1$s</string><string name="app_detail_info_time">时间: %1$s</string><string name="action_settings">Settings</string><string name="tv_user_email">56639624@qq.com</string><string name="app_name">应用市场</string><string name="app_detail_info_size">大小: %1$s</string><string name="tv_feedback">反馈</string><string-array name="main_titles">
+    </declare-styleable></file><file path="/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/res/values/colors.xml" qualifiers=""><color name="colorPrimaryDark">#4a43d7</color><color name="colorPrimary">#4a43d7</color><color name="colorAccent">#518736</color></file><file path="/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/res/values/dimens.xml" qualifiers=""><dimen name="activity_vertical_margin">16dp</dimen><dimen name="activity_horizontal_margin">16dp</dimen></file><file path="/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/res/values/strings.xml" qualifiers=""><string name="app_detail_info_version">版本: %1$s</string><string name="detail_downloadnum">下载量:%1$s</string><string name="detail_date">时间:%1$s</string><string name="app_detail_info_time">时间: %1$s</string><string name="action_settings">Settings</string><string name="tv_user_email">56639624@qq.com</string><string name="app_name">应用市场</string><string name="app_detail_info_size">大小: %1$s</string><string name="tv_feedback">反馈</string><string-array name="main_titles">
         <item>首页</item>
         <item>应用</item>
         <item>游戏</item>
@@ -1607,8 +1607,14 @@
         <item>推荐</item>
         <item>分类</item>
         <item>排行</item>
-    </string-array><string name="app_detail_info_downloadnum">下载: %1$s</string><string name="tv_setting">设置</string><string name="close">close</string><string name="tv_updates">检查更新</string><string name="tv_home">首页</string><string name="tv_exit">退出</string><string name="tv_user_name">曹浩平</string><string name="detail_size">大小:%1$s</string><string name="tv_theme">主题</string><string name="tv_scans">安装包管理</string><string name="open">open</string><string name="detail_version">版本号:%1$s</string><string name="tv_about">关于</string></file><file path="/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/res/values/styles.xml" qualifiers=""><style name="AppTheme" parent="AppBaseTheme">
+    </string-array><string name="app_detail_info_downloadnum">下载: %1$s</string><string name="tv_setting">设置</string><string name="close">close</string><string name="tv_updates">检查更新</string><string name="tv_home">首页</string><string name="tv_exit">退出</string><string name="tv_user_name">曹浩平</string><string name="detail_size">大小:%1$s</string><string name="tv_theme">主题</string><string name="tv_scans">安装包管理</string><string name="open">open</string><string name="detail_version">版本号:%1$s</string><string name="tv_about">关于</string></file><file path="/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/res/values/styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style><style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/><style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style><style name="menu_iv_style">
         <item name="android:layout_width">30dp</item>
         <item name="android:layout_height">30dp</item>

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Apr 06 17:22:05 CST 2017
+#Thu Apr 06 18:02:00 CST 2017
 210.set=ANDROID_RESOURCE
 282.file=/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/resources-debug.ap_/res/layout/design_navigation_menu_item.xml
 14.set=ANDROID_RESOURCE

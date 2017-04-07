@@ -1,4 +1,4 @@
-#Thu Apr 06 18:02:00 CST 2017
+#Fri Apr 07 08:23:22 CST 2017
 base.0=/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/transforms/dex/debug/folders/1000/1f/main
 renamed.0=classes.dex
 file.0=/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex

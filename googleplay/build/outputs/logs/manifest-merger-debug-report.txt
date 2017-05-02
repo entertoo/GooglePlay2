@@ -30,17 +30,17 @@ ADDED from /Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/go
 application
 ADDED from /Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/AndroidManifest.xml:11:5-30:19
 MERGED from [GooglePlay:pagerSlidingTabStrip:unspecified] /Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/pagerSlidingTabStrip/build/intermediates/bundles/default/AndroidManifest.xml:9:5-20
-MERGED from [com.android.support:design:25.3.0] /Users/haoping/.android/build-cache/e9454940ac58fb88dfb7ea741c7038adb0c4506a/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:appcompat-v7:25.3.0] /Users/haoping/.android/build-cache/16465b9a5ed56eca0a5fef532776a093ef090948/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.3.0] /Users/haoping/.android/build-cache/0e93e06fbe70802e8df77b1f83a4263b57fe91fc/output/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:25.3.0] /Users/haoping/.android/build-cache/f599df0e592a10ab3f1e5a4ebd47f55311ebd8b6/output/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:transition:25.3.0] /Users/haoping/.android/build-cache/f488f76dfa0e0320801456027f391bfc4a349a85/output/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-v4:25.3.0] /Users/haoping/.android/build-cache/75a6221bc23e368142fc9cbcbeda221f0010a30f/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:25.3.0] /Users/haoping/.android/build-cache/7cac1b60e660afe7d875b9bc6b6497c3b1347d30/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:25.3.0] /Users/haoping/.android/build-cache/4187a4cf72cf399839d238141b90040aa02b5854/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:25.3.0] /Users/haoping/.android/build-cache/244948c08de8db30e5cc4a19fcafed0620ce7fec/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:25.3.0] /Users/haoping/.android/build-cache/979a9f8aa0bd71906c0e239966f5be533ff0e1a3/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:25.3.0] /Users/haoping/.android/build-cache/fa0b6b22b4d57fd9b6a75a19b3486a8e4468824c/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:design:25.3.0] /Users/haoping/.android/build-cache/e06d8b26369220a8b8f8371a4118b413511b7b16/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:25.3.0] /Users/haoping/.android/build-cache/159f6107e4cb91542fd79fa3ffc621193050d458/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.0] /Users/haoping/.android/build-cache/1205d83bda7eeead0221295fc1ace4b111d4ae41/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.0] /Users/haoping/.android/build-cache/19fc6a2170e4293e7deb669e8710d071b3d93c45/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:transition:25.3.0] /Users/haoping/.android/build-cache/7e2cacf11244140228d01cdac610ec29dce95179/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-v4:25.3.0] /Users/haoping/.android/build-cache/6f3f677ece8247af414bf536d826b6e0a6dc174c/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.0] /Users/haoping/.android/build-cache/0c9a684e565b320e634af879739ea388326d98b5/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.0] /Users/haoping/.android/build-cache/c3465635a19143bae3156b953f96fad8278f0cdd/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.0] /Users/haoping/.android/build-cache/ce75d7497620ee7e39e50e826067f74cf178f8e0/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.0] /Users/haoping/.android/build-cache/4d36994eafb1057792fbf6e4394cd71edcd171c2/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.0] /Users/haoping/.android/build-cache/c2b72c256bd1fb5ddab6619cb00d3d812262ce8f/output/AndroidManifest.xml:29:5-20
 	android:label
 		ADDED from /Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/AndroidManifest.xml:15:9-41
 	android:allowBackup
@@ -77,20 +77,20 @@ uses-sdk
 INJECTED from /Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [GooglePlay:pagerSlidingTabStrip:unspecified] /Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/pagerSlidingTabStrip/build/intermediates/bundles/default/AndroidManifest.xml:5:5-7:41
 MERGED from [com.jakewharton:butterknife:8.5.1] /Users/haoping/.android/build-cache/5e47eeb1dbc3b4f1e46244da9d1b2dfe58246e4a/output/AndroidManifest.xml:5:5-43
-MERGED from [com.android.support:design:25.3.0] /Users/haoping/.android/build-cache/e9454940ac58fb88dfb7ea741c7038adb0c4506a/output/AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:appcompat-v7:25.3.0] /Users/haoping/.android/build-cache/16465b9a5ed56eca0a5fef532776a093ef090948/output/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:25.3.0] /Users/haoping/.android/build-cache/0e93e06fbe70802e8df77b1f83a4263b57fe91fc/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.3.0] /Users/haoping/.android/build-cache/f599df0e592a10ab3f1e5a4ebd47f55311ebd8b6/output/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:recyclerview-v7:25.3.0] /Users/haoping/.android/build-cache/4ceb3f44eec6c1c7224c48d7de9b53f617e2027c/output/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:transition:25.3.0] /Users/haoping/.android/build-cache/f488f76dfa0e0320801456027f391bfc4a349a85/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:25.3.0] /Users/haoping/.android/build-cache/75a6221bc23e368142fc9cbcbeda221f0010a30f/output/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:25.3.0] /Users/haoping/.android/build-cache/7cac1b60e660afe7d875b9bc6b6497c3b1347d30/output/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.3.0] /Users/haoping/.android/build-cache/4187a4cf72cf399839d238141b90040aa02b5854/output/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:25.3.0] /Users/haoping/.android/build-cache/244948c08de8db30e5cc4a19fcafed0620ce7fec/output/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:25.3.0] /Users/haoping/.android/build-cache/979a9f8aa0bd71906c0e239966f5be533ff0e1a3/output/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:25.3.0] /Users/haoping/.android/build-cache/fa0b6b22b4d57fd9b6a75a19b3486a8e4468824c/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:design:25.3.0] /Users/haoping/.android/build-cache/e06d8b26369220a8b8f8371a4118b413511b7b16/output/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:25.3.0] /Users/haoping/.android/build-cache/159f6107e4cb91542fd79fa3ffc621193050d458/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.3.0] /Users/haoping/.android/build-cache/1205d83bda7eeead0221295fc1ace4b111d4ae41/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.0] /Users/haoping/.android/build-cache/19fc6a2170e4293e7deb669e8710d071b3d93c45/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.3.0] /Users/haoping/.android/build-cache/09d7d2330612aca0a52d5b0bd32cd30cc0e727a2/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:transition:25.3.0] /Users/haoping/.android/build-cache/7e2cacf11244140228d01cdac610ec29dce95179/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:25.3.0] /Users/haoping/.android/build-cache/6f3f677ece8247af414bf536d826b6e0a6dc174c/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.0] /Users/haoping/.android/build-cache/0c9a684e565b320e634af879739ea388326d98b5/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.0] /Users/haoping/.android/build-cache/c3465635a19143bae3156b953f96fad8278f0cdd/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.3.0] /Users/haoping/.android/build-cache/ce75d7497620ee7e39e50e826067f74cf178f8e0/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.3.0] /Users/haoping/.android/build-cache/4d36994eafb1057792fbf6e4394cd71edcd171c2/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.3.0] /Users/haoping/.android/build-cache/c2b72c256bd1fb5ddab6619cb00d3d812262ce8f/output/AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
-		ADDED from [com.android.support:design:25.3.0] /Users/haoping/.android/build-cache/e9454940ac58fb88dfb7ea741c7038adb0c4506a/output/AndroidManifest.xml:23:9-59
+		ADDED from [com.android.support:design:25.3.0] /Users/haoping/.android/build-cache/e06d8b26369220a8b8f8371a4118b413511b7b16/output/AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
 		INJECTED from /Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/AndroidManifest.xml
 		INJECTED from /Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/AndroidManifest.xml
@@ -98,19 +98,19 @@ MERGED from [com.android.support:support-compat:25.3.0] /Users/haoping/.android/
 		INJECTED from /Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/AndroidManifest.xml
 		INJECTED from /Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/src/main/AndroidManifest.xml
 meta-data#android.support.VERSION
-ADDED from [com.android.support:design:25.3.0] /Users/haoping/.android/build-cache/e9454940ac58fb88dfb7ea741c7038adb0c4506a/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:appcompat-v7:25.3.0] /Users/haoping/.android/build-cache/16465b9a5ed56eca0a5fef532776a093ef090948/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:animated-vector-drawable:25.3.0] /Users/haoping/.android/build-cache/0e93e06fbe70802e8df77b1f83a4263b57fe91fc/output/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-vector-drawable:25.3.0] /Users/haoping/.android/build-cache/f599df0e592a10ab3f1e5a4ebd47f55311ebd8b6/output/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:recyclerview-v7:25.3.0] /Users/haoping/.android/build-cache/4ceb3f44eec6c1c7224c48d7de9b53f617e2027c/output/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:transition:25.3.0] /Users/haoping/.android/build-cache/f488f76dfa0e0320801456027f391bfc4a349a85/output/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-v4:25.3.0] /Users/haoping/.android/build-cache/75a6221bc23e368142fc9cbcbeda221f0010a30f/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-fragment:25.3.0] /Users/haoping/.android/build-cache/7cac1b60e660afe7d875b9bc6b6497c3b1347d30/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-media-compat:25.3.0] /Users/haoping/.android/build-cache/4187a4cf72cf399839d238141b90040aa02b5854/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-ui:25.3.0] /Users/haoping/.android/build-cache/244948c08de8db30e5cc4a19fcafed0620ce7fec/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-utils:25.3.0] /Users/haoping/.android/build-cache/979a9f8aa0bd71906c0e239966f5be533ff0e1a3/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-compat:25.3.0] /Users/haoping/.android/build-cache/fa0b6b22b4d57fd9b6a75a19b3486a8e4468824c/output/AndroidManifest.xml:25:5-27:34
+ADDED from [com.android.support:design:25.3.0] /Users/haoping/.android/build-cache/e06d8b26369220a8b8f8371a4118b413511b7b16/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:appcompat-v7:25.3.0] /Users/haoping/.android/build-cache/159f6107e4cb91542fd79fa3ffc621193050d458/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.0] /Users/haoping/.android/build-cache/1205d83bda7eeead0221295fc1ace4b111d4ae41/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.0] /Users/haoping/.android/build-cache/19fc6a2170e4293e7deb669e8710d071b3d93c45/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:recyclerview-v7:25.3.0] /Users/haoping/.android/build-cache/09d7d2330612aca0a52d5b0bd32cd30cc0e727a2/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:transition:25.3.0] /Users/haoping/.android/build-cache/7e2cacf11244140228d01cdac610ec29dce95179/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.0] /Users/haoping/.android/build-cache/6f3f677ece8247af414bf536d826b6e0a6dc174c/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.0] /Users/haoping/.android/build-cache/0c9a684e565b320e634af879739ea388326d98b5/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.0] /Users/haoping/.android/build-cache/c3465635a19143bae3156b953f96fad8278f0cdd/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.0] /Users/haoping/.android/build-cache/ce75d7497620ee7e39e50e826067f74cf178f8e0/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.0] /Users/haoping/.android/build-cache/4d36994eafb1057792fbf6e4394cd71edcd171c2/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.0] /Users/haoping/.android/build-cache/c2b72c256bd1fb5ddab6619cb00d3d812262ce8f/output/AndroidManifest.xml:25:5-27:34
 	android:value
-		ADDED from [com.android.support:design:25.3.0] /Users/haoping/.android/build-cache/e9454940ac58fb88dfb7ea741c7038adb0c4506a/output/AndroidManifest.xml:27:9-31
+		ADDED from [com.android.support:design:25.3.0] /Users/haoping/.android/build-cache/e06d8b26369220a8b8f8371a4118b413511b7b16/output/AndroidManifest.xml:27:9-31
 	android:name
-		ADDED from [com.android.support:design:25.3.0] /Users/haoping/.android/build-cache/e9454940ac58fb88dfb7ea741c7038adb0c4506a/output/AndroidManifest.xml:26:9-47
+		ADDED from [com.android.support:design:25.3.0] /Users/haoping/.android/build-cache/e06d8b26369220a8b8f8371a4118b413511b7b16/output/AndroidManifest.xml:26:9-47

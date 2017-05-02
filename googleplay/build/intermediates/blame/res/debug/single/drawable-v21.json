@@ -1,34 +1,34 @@
 [
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-v21/avd_show_password.xml",
-        "source": "/Users/haoping/.android/build-cache/e9454940ac58fb88dfb7ea741c7038adb0c4506a/output/res/drawable-v21/avd_show_password.xml"
+        "source": "/Users/haoping/.android/build-cache/e06d8b26369220a8b8f8371a4118b413511b7b16/output/res/drawable-v21/avd_show_password.xml"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
-        "source": "/Users/haoping/.android/build-cache/16465b9a5ed56eca0a5fef532776a093ef090948/output/res/drawable-v21/notification_action_background.xml"
+        "source": "/Users/haoping/.android/build-cache/159f6107e4cb91542fd79fa3ffc621193050d458/output/res/drawable-v21/notification_action_background.xml"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
-        "source": "/Users/haoping/.android/build-cache/16465b9a5ed56eca0a5fef532776a093ef090948/output/res/drawable-v21/abc_btn_colored_material.xml"
+        "source": "/Users/haoping/.android/build-cache/159f6107e4cb91542fd79fa3ffc621193050d458/output/res/drawable-v21/abc_btn_colored_material.xml"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
-        "source": "/Users/haoping/.android/build-cache/16465b9a5ed56eca0a5fef532776a093ef090948/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
+        "source": "/Users/haoping/.android/build-cache/159f6107e4cb91542fd79fa3ffc621193050d458/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
-        "source": "/Users/haoping/.android/build-cache/16465b9a5ed56eca0a5fef532776a093ef090948/output/res/drawable-v21/abc_edit_text_material.xml"
+        "source": "/Users/haoping/.android/build-cache/159f6107e4cb91542fd79fa3ffc621193050d458/output/res/drawable-v21/abc_edit_text_material.xml"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-v21/design_bottom_navigation_item_background.xml",
-        "source": "/Users/haoping/.android/build-cache/e9454940ac58fb88dfb7ea741c7038adb0c4506a/output/res/drawable-v21/design_bottom_navigation_item_background.xml"
+        "source": "/Users/haoping/.android/build-cache/e06d8b26369220a8b8f8371a4118b413511b7b16/output/res/drawable-v21/design_bottom_navigation_item_background.xml"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-v21/avd_hide_password.xml",
-        "source": "/Users/haoping/.android/build-cache/e9454940ac58fb88dfb7ea741c7038adb0c4506a/output/res/drawable-v21/avd_hide_password.xml"
+        "source": "/Users/haoping/.android/build-cache/e06d8b26369220a8b8f8371a4118b413511b7b16/output/res/drawable-v21/avd_hide_password.xml"
     },
     {
         "merged": "/Users/haoping/Desktop/AndroidStudioProject/Projects-Me/GooglePlay/googleplay/build/intermediates/res/merged/debug/drawable-v21/design_password_eye.xml",
-        "source": "/Users/haoping/.android/build-cache/e9454940ac58fb88dfb7ea741c7038adb0c4506a/output/res/drawable-v21/design_password_eye.xml"
+        "source": "/Users/haoping/.android/build-cache/e06d8b26369220a8b8f8371a4118b413511b7b16/output/res/drawable-v21/design_password_eye.xml"
     }
 ]
